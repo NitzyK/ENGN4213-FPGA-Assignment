@@ -9,4 +9,4 @@ module spot (
  end
  
  assign spot_out = spot_in & (~B);
- 
+ endmodule
