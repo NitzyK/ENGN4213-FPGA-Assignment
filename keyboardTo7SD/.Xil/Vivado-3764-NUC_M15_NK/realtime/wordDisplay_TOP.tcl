@@ -41,17 +41,15 @@ set rt::rc [catch {
     set rt::useElabCache false
     if {$rt::useElabCache == false} {
       rt::read_verilog {
-      C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/PS2_data_capture.v
-      C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/clockDividerHB.v
-      C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/displayDriver.v
-      C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/sevenSegmentDisplayDecoder.v
-      C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/spot.v
-      C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v
+      C:/Users/getni/ENGN4213-FPGA-Assignment/wordDisplay7SD/wordDisplay7SD.srcs/sources_1/new/clockDividerHB.v
+      C:/Users/getni/ENGN4213-FPGA-Assignment/wordDisplay7SD/wordDisplay7SD.srcs/sources_1/new/debouncer.v
+      C:/Users/getni/ENGN4213-FPGA-Assignment/wordDisplay7SD/wordDisplay7SD.srcs/sources_1/new/spot.v
+      C:/Users/getni/ENGN4213-FPGA-Assignment/wordDisplay7SD/wordDisplay7SD.srcs/sources_1/new/wordDisplay_TOP.v
     }
       rt::filesetChecksum
     }
     rt::set_parameter usePostFindUniquification false
-    set rt::top keyboardTo7SD_TOP
+    set rt::top wordDisplay_TOP
     rt::set_parameter enableIncremental true
     rt::set_parameter markDebugPreservationLevel "enable"
     set rt::reportTiming false

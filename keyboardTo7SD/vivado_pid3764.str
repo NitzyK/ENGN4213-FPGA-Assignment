@@ -4158,3 +4158,964 @@ selectCodeEditor("displayDriver.v", 529, 276); // ae (displayDriver.v)
 // TclEventType: DESIGN_STALE
 // TclEventType: FILE_SET_CHANGE
 // Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:42m:11s
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:42m:13s
+// Elapsed time: 31 seconds
+selectCodeEditor("displayDriver.v", 466, 218); // ae (displayDriver.v)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 25, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton(RDIResource.BaseDialog_YES, "Yes", "Synthesis is Out-of-date"); // a (RDIResource.BaseDialog_YES)
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // u (dialog76)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// Tcl Message: INFO: [Project 1-1161] Replacing file C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/utils_1/imports/synth_1/PS2_data_capture.dcp with file C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/synth_1/keyboardTo7SD_TOP.dcp 
+// TclEventType: FILE_SET_CHANGE
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+// 'cM' command handler elapsed time: 4 seconds
+dismissDialog("Launch Runs"); // cP (dialog77)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 8 
+// Tcl Message: [Sat Apr  5 23:05:08 2025] Launched synth_1... Run output will be captured here: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/synth_1/runme.log [Sat Apr  5 23:05:08 2025] Launched impl_1... Run output will be captured here: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/impl_1/runme.log 
+// TclEventType: RUN_STATUS_CHANGE
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 455ms to process. Increasing delay to 2000 ms.
+// Elapsed time: 52 seconds
+selectCodeEditor("displayDriver.v", 309, 268); // ae (displayDriver.v)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// WARNING: HEventQueue.dispatchEvent() is taking  1075 ms.
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PS2_data_capture.v", 4); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 16 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PS2_data_capture.v", 4); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PS2_data_capture.v", 4); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PS2_data_capture.v", 4); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// TclEventType: RUN_STEP_COMPLETED
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 24 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 51 seconds
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_nets PS2_data_out]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel", "Bitstream Generation Completed"); // a (RDIResource.BaseDialog_CANCEL)
+dismissDialog("Bitstream Generation Completed"); // W.a (dialog78)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("keyboardTo7SD_TOP.v", 356, 127); // ae (keyboardTo7SD_TOP.v)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 16 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("keyboardTo7SD_TOP.v", 244, 222); // ae (keyboardTo7SD_TOP.v)
+// Elapsed time: 18 seconds
+selectCodeEditor("keyboardTo7SD_TOP.v", 429, 272); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 330, 223); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 307, 229); // ae (keyboardTo7SD_TOP.v)
+// Elapsed time: 26 seconds
+selectCodeEditor("keyboardTo7SD_TOP.v", 307, 232); // ae (keyboardTo7SD_TOP.v)
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PS2_data_capture.v", 4); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "displayDriver.v", 7); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("displayDriver.v", 418, 175); // ae (displayDriver.v)
+// Elapsed time: 10 seconds
+selectCodeEditor("displayDriver.v", 299, 316); // ae (displayDriver.v)
+// Elapsed time: 11 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "K27SD_constraints.xdc", 5); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("keyboardTo7SD_TOP.v", 327, 159); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 286, 231); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 278, 229); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 172, 229); // ae (keyboardTo7SD_TOP.v)
+// Elapsed time: 23 seconds
+selectCodeEditor("keyboardTo7SD_TOP.v", 134, 16); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 266, 259); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 139, 162); // ae (keyboardTo7SD_TOP.v)
+typeControlKey((HResource) null, "keyboardTo7SD_TOP.v", 'c'); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 161, 179); // ae (keyboardTo7SD_TOP.v)
+typeControlKey((HResource) null, "keyboardTo7SD_TOP.v", 'v'); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 138, 246); // ae (keyboardTo7SD_TOP.v)
+typeControlKey((HResource) null, "keyboardTo7SD_TOP.v", 'c'); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 289, 175); // ae (keyboardTo7SD_TOP.v)
+typeControlKey((HResource) null, "keyboardTo7SD_TOP.v", 'v'); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 287, 248); // ae (keyboardTo7SD_TOP.v)
+// Elapsed time: 22 seconds
+selectCodeEditor("keyboardTo7SD_TOP.v", 137, 140); // ae (keyboardTo7SD_TOP.v)
+typeControlKey((HResource) null, "keyboardTo7SD_TOP.v", 'c'); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 132, 223); // ae (keyboardTo7SD_TOP.v)
+typeControlKey((HResource) null, "keyboardTo7SD_TOP.v", 'v'); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 423, 243); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 272, 136); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 320, 303); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 100, 176); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 63, 165); // ae (keyboardTo7SD_TOP.v)
+typeControlKey((HResource) null, "keyboardTo7SD_TOP.v", 'v'); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 156, 143); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 39, 183); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 420, 184); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 24, 203); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 115, 96); // ae (keyboardTo7SD_TOP.v)
+typeControlKey((HResource) null, "keyboardTo7SD_TOP.v", 'v'); // ae (keyboardTo7SD_TOP.v)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h (PAResourceOtoP.ProjectTab_RELOAD)
+// Tcl Message: refresh_design 
+// TclEventType: ELABORATE_START
+// TclEventType: MSGMGR_REFRESH_MSG
+// Tcl Message: INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes. 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 2894.844 ; gain = 3.211 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: ELABORATE_FAIL
+// Tcl Message: INFO: [Synth 8-11241] undeclared symbol 'beat', assumed default net type 'wire' [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/displayDriver.v:35] INFO: [Synth 8-11241] undeclared symbol 'PS2_data_out', assumed default net type 'wire' [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v:40] 
+// Tcl Message: ERROR: [Synth 8-9250] cannot index into non-array type wire for 'PS2_data_out' [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v:32] 
+// Tcl Message: INFO: [Synth 8-10285] module 'keyboardTo7SD_TOP' is ignored due to previous errors [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v:54] INFO: [Synth 8-9084] Verilog file 'C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v' ignored due to errors 
+// Tcl Message: ERROR: [Synth 8-12188] Failed to read verilog 'C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v' 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:10 . Memory (MB): peak = 2894.844 ; gain = 3.211 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: RTL Elaboration failed 
+// Tcl Message: refresh_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2894.844 ; gain = 3.211 
+// Tcl Message: ERROR: [Common 17-39] 'refresh_design' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'refresh_design' failed due to earlier errors.  
+// Elapsed time: 12 seconds
+dismissDialog("Reloading"); // bh (Reloading Progress)
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:50m:08s
+selectList(PAResourceAtoD.CmdMsgDialog_MESSAGES, "[Synth 8-9250] cannot index into non-array type wire for 'PS2_data_out' [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v:32]", 0); // b (PAResourceAtoD.CmdMsgDialog_MESSAGES)
+selectList(PAResourceAtoD.CmdMsgDialog_MESSAGES, "[Synth 8-9250] cannot index into non-array type wire for 'PS2_data_out' [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v:32]", 0, false, false, false, false, true); // b (PAResourceAtoD.CmdMsgDialog_MESSAGES) - Double Click
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Critical Messages"); // J (dialog79)
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:50m:10s
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, rtl_1, General Messages, [Synth 8-9250] cannot index into non-array type wire for 'PS2_data_out' [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v:32]. ]", 6, false); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE)
+selectCodeEditor("keyboardTo7SD_TOP.v", 329, 206); // ae (keyboardTo7SD_TOP.v)
+// Elapsed time: 29 seconds
+selectCodeEditor("keyboardTo7SD_TOP.v", 34, 164); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 99, 116); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 141, 121); // ae (keyboardTo7SD_TOP.v)
+// Elapsed time: 10 seconds
+selectCodeEditor("keyboardTo7SD_TOP.v", 151, 121); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 257, 121); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 134, 327); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 262, 227); // ae (keyboardTo7SD_TOP.v)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:51m:14s
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h (PAResourceOtoP.ProjectTab_RELOAD)
+// TclEventType: ELABORATE_START
+// Tcl Message: refresh_design 
+// Tcl Message: ERROR: [Common 17-180] Spawn failed: No error 
+// Tcl Message: INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes. 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2894.992 ; gain = 0.148 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'keyboardTo7SD_TOP' (0#1) [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v:23] 
+// TclEventType: ELABORATE_FINISH
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 1,853 MB. GUI used memory: 183 MB. Current time: 4/5/25, 11:13:44 PM AEDT
+// Engine heap size: 1,853 MB. GUI used memory: 185 MB. Current time: 4/5/25, 11:13:44 PM AEDT
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2894.992 ; gain = 0.148 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2895.008 ; gain = 0.164 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2895.008 ; gain = 0.164 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 1,853 MB. GUI used memory: 162 MB. Current time: 4/5/25, 11:13:47 PM AEDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1442 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Parsing XDC File [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/constrs_1/new/K27SD_constraints.xdc] Finished Parsing XDC File [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/constrs_1/new/K27SD_constraints.xdc] Completed Processing XDC Constraints  
+// Tcl Message: refresh_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 2897.395 ; gain = 2.551 
+// Tcl Message: ERROR: [Common 17-39] 'refresh_design' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'refresh_design' failed due to earlier errors.  
+// Elapsed time: 15 seconds
+dismissDialog("Reloading"); // bh (Reloading Progress)
+// Xgd.load filename: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/.Xil/Vivado-3764-NUC_M15_NK/xc7a35t_detail.xgd_2FDC elapsed time: 2.1s
+// DeviceModel: Load Xgds SwingWorker Join Forever elapsed time: 2.2s
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:51m:32s
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK", "Critical Messages"); // f (PAResourceAtoD.CmdMsgDialog_OK)
+dismissDialog("Critical Messages"); // J (dialog80)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design, Schematic]", 17, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_SCHEMATIC
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "unselect_objects"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_nets PS2_data_out]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "unselect_objects"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_nets PS2_data_out]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_pins signaldecoder/PS2_data_out]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_pins signaldecoder/PS2_data_out]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "displayDriver.v", 7); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("keyboardTo7SD_TOP.v", 240, 332); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 434, 348); // ae (keyboardTo7SD_TOP.v)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h (PAResourceOtoP.ProjectTab_RELOAD)
+// HOptionPane Warning: 'A background task is running. Please wait until it completes and try again. (Background Task)'
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:52m:26s
+// Tcl Message: ERROR: [Common 17-180] Spawn failed: No error 
+selectButton("OptionPane.button", "OK", "Background Task"); // JButton (OptionPane.button)
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:52m:32s
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h (PAResourceOtoP.ProjectTab_RELOAD)
+// TclEventType: ELABORATE_START
+// TclEventType: MSGMGR_REFRESH_MSG
+// Tcl Message: refresh_design 
+// Tcl Message: INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes. 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: ELABORATE_FINISH
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 1,853 MB. GUI used memory: 166 MB. Current time: 4/5/25, 11:15:09 PM AEDT
+// Engine heap size: 1,853 MB. GUI used memory: 166 MB. Current time: 4/5/25, 11:15:09 PM AEDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1158 ms.
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 1,853 MB. GUI used memory: 166 MB. Current time: 4/5/25, 11:15:14 PM AEDT
+// WARNING: HEventQueue.dispatchEvent() is taking  2572 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Parsing XDC File [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/constrs_1/new/K27SD_constraints.xdc] Finished Parsing XDC File [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/constrs_1/new/K27SD_constraints.xdc] Completed Processing XDC Constraints  
+// Tcl Message: refresh_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:25 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/ag': 25s
+// Elapsed time: 25 seconds
+dismissDialog("Reloading"); // bh (Reloading Progress)
+// Xgd.load filename: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/.Xil/Vivado-3764-NUC_M15_NK/xc7a35t_detail.xgd_30F9 elapsed time: 4.2s
+// DeviceModel: Load Xgds SwingWorker Join Forever elapsed time: 4.5s
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// RouteApi::loadEngineXgdAndInitRouteStorage elapsed time: 1.1s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_nets PS2_data_out]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_pins signaldecoder/PS2_data_out]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 25, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton("OptionPane.button", "OK", "Generate Bitstream"); // JButton (OptionPane.button)
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+dismissDialog("Launch Runs"); // cP (dialog81)
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 8 
+// Tcl Message: [Sat Apr  5 23:15:43 2025] Launched impl_1... Run output will be captured here: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bh (Generate Bitstream Progress)
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 20 seconds
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_cells displayDriver_inst]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "unselect_objects"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+selectButton(PAResourceCommand.PACommandNames_ZOOM_FIT, "Schematic_zoom_fit"); // C (PAResourceCommand.PACommandNames_ZOOM_FIT, Schematic_zoom_fit)
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_FIT
+// Elapsed time: 19 seconds
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_cells displayDriver_inst/ssdValue_i]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+selectButton(RDIResource.BaseDialog_OK, "OK", "Bitstream Generation Completed"); // a (RDIResource.BaseDialog_OK)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl (Dont Echo) Command: 'rdi::info_commands get_hw_probes'
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // x (PAResourceOtoP.PAViews_PROJECT_SUMMARY, PlanAheadTabProject Summary)
+dismissDialog("Bitstream Generation Completed"); // W.a (dialog82)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (PAResourceOtoP.ProgramDebugTab_OPEN_TARGET)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // aq (PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, auto_connect_target_menu)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server -allow_non_jtag 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0 INFO: [Labtools 27-3417] Launching cs_server... 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:   ******** Xilinx cs_server v2024.2.0   ****** Build date   : Oct 31 2024-05:19:07     **** Build number : 2024.2.1730312347       ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.       ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.    
+// Tcl Message: ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.  Targets(s) ", jsn-Basys3-210183B15957A" may be locked by another hw_server. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.  Targets(s) ", jsn-Basys3-210183B15957A" may be locked by another hw_server.  
+dismissDialog("Auto Connect"); // bh (Auto Connect Progress)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK", "Critical Messages"); // f (PAResourceAtoD.CmdMsgDialog_OK)
+dismissDialog("Critical Messages"); // a (dialog83)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (PAResourceOtoP.ProgramDebugTab_OPEN_TARGET)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // aq (PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, auto_connect_target_menu)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// Tcl Message: connect_hw_server -allow_non_jtag 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0 INFO: [Labtools 27-3417] Launching cs_server... 
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:   ******** Xilinx cs_server v2024.2.0   ****** Build date   : Oct 31 2024-05:19:07     **** Build number : 2024.2.1730312347       ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.       ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.    
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server: Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// TclEventType: HW_TARGET_CHANGE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183B15957A 
+// Tcl Message: ERROR: [Labtools 27-2269] No devices detected on target localhost:3121/xilinx_tcf/Digilent/210183B15957A. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-register this hardware target. 
+// Tcl Message: ERROR: [Common 17-39] 'open_hw_target' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'open_hw_target' failed due to earlier errors.  
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/l.a': 29s
+// Elapsed time: 29 seconds
+dismissDialog("Auto Connect"); // bh (Auto Connect Progress)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK", "Critical Messages"); // f (PAResourceAtoD.CmdMsgDialog_OK)
+dismissDialog("Critical Messages"); // a (dialog84)
+selectTreeTable(PAResourceEtoH.HardwareTreePanel_HARDWARE_TREE_TABLE, "xilinx_tcf/Digilent/210183B15957A (0) ; Open", 1, "xilinx_tcf/Digilent/210183B15957A (0)", 0, false); // m (PAResourceEtoH.HardwareTreePanel_HARDWARE_TREE_TABLE)
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183B15957A 
+// TclEventType: HW_SERVER_UPDATE
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK", "Close Hardware Target"); // f (PAResourceAtoD.CmdMsgDialog_OK)
+dismissDialog("Close Hardware Target"); // j.a (dialog85)
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program", "Program Device"); // a (PAResourceOtoP.ProgramFpgaDialog_PROGRAM, RDIResource.BaseDialog_OK)
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // aT (dialog86)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/impl_1/keyboardTo7SD_TOP.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bh (Program Device Progress)
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 11 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PS2_data_capture.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("keyboardTo7SD_TOP.v", 305, 161); // ae (keyboardTo7SD_TOP.v)
+// Elapsed time: 12 seconds
+selectCodeEditor("keyboardTo7SD_TOP.v", 308, 160); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 293, 177); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 344, 205); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 309, 164); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 255, 210); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 230, 183); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 312, 187); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 166, 136); // ae (keyboardTo7SD_TOP.v)
+// Elapsed time: 16 seconds
+selectCodeEditor("keyboardTo7SD_TOP.v", 0, 235); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 192, 45); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 191, 40); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 140, 206); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 136, 204); // ae (keyboardTo7SD_TOP.v)
+typeControlKey((HResource) null, "keyboardTo7SD_TOP.v", 'c'); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 188, 28); // ae (keyboardTo7SD_TOP.v)
+typeControlKey((HResource) null, "keyboardTo7SD_TOP.v", 'v'); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 401, 78); // ae (keyboardTo7SD_TOP.v)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:57m:24s
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:57m:28s
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design, Schematic]", 16, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_SCHEMATIC
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h (PAResourceOtoP.ProjectTab_RELOAD)
+// TclEventType: ELABORATE_START
+// TclEventType: MSGMGR_REFRESH_MSG
+// Tcl Message: refresh_design 
+// Tcl Message: INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes. 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: ELABORATE_FAIL
+// Tcl Message: INFO: [Synth 8-11241] undeclared symbol 'beat', assumed default net type 'wire' [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/displayDriver.v:35] INFO: [Synth 8-11241] undeclared symbol 'PS2_data_out', assumed default net type 'wire' [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v:38] 
+// Tcl Message: ERROR: [Synth 8-9250] cannot index into non-array type wire for 'PS2_data_out' [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v:42] ERROR: [Synth 8-9250] cannot index into non-array type wire for 'PS2_data_out' [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v:50] 
+// Tcl Message: INFO: [Synth 8-10285] module 'keyboardTo7SD_TOP' is ignored due to previous errors [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v:53] INFO: [Synth 8-9084] Verilog file 'C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v' ignored due to errors 
+// Tcl Message: ERROR: [Synth 8-12188] Failed to read verilog 'C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/sources_1/new/keyboardTo7SD_TOP.v' 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: RTL Elaboration failed 
+// Tcl Message: refresh_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: ERROR: [Common 17-39] 'refresh_design' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'refresh_design' failed due to earlier errors.  
+// Elapsed time: 11 seconds
+dismissDialog("Reloading"); // bh (Reloading Progress)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK", "Critical Messages"); // f (PAResourceAtoD.CmdMsgDialog_OK)
+dismissDialog("Critical Messages"); // J (dialog87)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic (2)", 6); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("keyboardTo7SD_TOP.v", 194, 236); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 129, 327); // ae (keyboardTo7SD_TOP.v)
+typeControlKey((HResource) null, "keyboardTo7SD_TOP.v", 'c'); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 134, 107); // ae (keyboardTo7SD_TOP.v)
+typeControlKey((HResource) null, "keyboardTo7SD_TOP.v", 'v'); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 78, 116); // ae (keyboardTo7SD_TOP.v)
+selectCodeEditor("keyboardTo7SD_TOP.v", 418, 171); // ae (keyboardTo7SD_TOP.v)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 280 MB (+2730kb) [10:06:38]
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:58m:12s
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h (PAResourceOtoP.ProjectTab_RELOAD)
+// Tcl Message: refresh_design 
+// TclEventType: ELABORATE_START
+// Tcl Message: INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes. 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: ELABORATE_FINISH
+// TclEventType: DESIGN_REFRESH
+// Engine heap size: 1,853 MB. GUI used memory: 179 MB. Current time: 4/5/25, 11:20:43 PM AEDT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,853 MB. GUI used memory: 180 MB. Current time: 4/5/25, 11:20:43 PM AEDT
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 1,853 MB. GUI used memory: 179 MB. Current time: 4/5/25, 11:20:45 PM AEDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1303 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Parsing XDC File [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/constrs_1/new/K27SD_constraints.xdc] Finished Parsing XDC File [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/constrs_1/new/K27SD_constraints.xdc] Completed Processing XDC Constraints  
+// Tcl Message: refresh_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:16 . Memory (MB): peak = 2897.395 ; gain = 0.000 
+// Elapsed time: 16 seconds
+dismissDialog("Reloading"); // bh (Reloading Progress)
+// Xgd.load filename: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/.Xil/Vivado-3764-NUC_M15_NK/xc7a35t_detail.xgd_3531 elapsed time: 1.9s
+// DeviceModel: Load Xgds SwingWorker Join Forever elapsed time: 2s
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:58m:30s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic (6)", 11); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic (5)", 10); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic (4)", 9); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// Tcl Message: ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183B15957A 
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK", "Close Hardware Target"); // f (PAResourceAtoD.CmdMsgDialog_OK)
+dismissDialog("Close Hardware Target"); // j.a (dialog88)
+closeView(PAResourceOtoP.PAViews_SCHEMATIC, "Schematic"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_nets led]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_nets led]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_nets led]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_nets led]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_cells signaldecoder]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_cells signaldecoder]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_pins signaldecoder/PS2_data_out]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "K27SD_constraints.xdc", 5); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 336ms to process. Increasing delay to 2000 ms.
+// Elapsed time: 27 seconds
+selectCodeEditor("K27SD_constraints.xdc", 831, 247); // ae (K27SD_constraints.xdc)
+selectCodeEditor("K27SD_constraints.xdc", 774, 97); // ae (K27SD_constraints.xdc)
+selectCodeEditor("K27SD_constraints.xdc", 775, 98); // ae (K27SD_constraints.xdc)
+selectCodeEditor("K27SD_constraints.xdc", 773, 117); // ae (K27SD_constraints.xdc)
+selectCodeEditor("K27SD_constraints.xdc", 775, 138); // ae (K27SD_constraints.xdc)
+selectCodeEditor("K27SD_constraints.xdc", 772, 154); // ae (K27SD_constraints.xdc)
+selectCodeEditor("K27SD_constraints.xdc", 775, 183); // ae (K27SD_constraints.xdc)
+selectCodeEditor("K27SD_constraints.xdc", 773, 198); // ae (K27SD_constraints.xdc)
+selectCodeEditor("K27SD_constraints.xdc", 771, 220); // ae (K27SD_constraints.xdc)
+selectCodeEditor("K27SD_constraints.xdc", 771, 243); // ae (K27SD_constraints.xdc)
+selectCodeEditor("K27SD_constraints.xdc", 749, 117); // ae (K27SD_constraints.xdc)
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 25, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton(RDIResource.BaseDialog_YES, "Yes", "Synthesis is Out-of-date"); // a (RDIResource.BaseDialog_YES)
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // u (dialog89)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// Tcl Message: INFO: [Project 1-1161] Replacing file C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/utils_1/imports/synth_1/PS2_data_capture.dcp with file C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/synth_1/keyboardTo7SD_TOP.dcp 
+// TclEventType: FILE_SET_CHANGE
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+dismissDialog("Launch Runs"); // cP (dialog90)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 8 
+// Tcl Message: [Sat Apr  5 23:22:42 2025] Launched synth_1... Run output will be captured here: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/synth_1/runme.log [Sat Apr  5 23:22:42 2025] Launched impl_1... Run output will be captured here: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/impl_1/runme.log 
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 12 seconds
+selectCheckBox(PAResourceItoN.MsgView_WARNING_MESSAGES, (String) null, true); // f (PAResourceItoN.MsgView_WARNING_MESSAGES): TRUE
+// Elapsed time: 21 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "displayDriver.v", 7); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 14 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic (2)", 6); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 99 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK", "Bitstream Generation Failed"); // a (RDIResource.BaseDialog_OK)
+// Run Command: PAResourceCommand.PACommandNames_LOG_WINDOW
+dismissDialog("Bitstream Generation Failed"); // W.a (dialog91)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic (3)", 8); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+// Elapsed time: 12 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Write Bitstream, DRC, Pin Planning, [DRC UCIO-1] Unconstrained Logical Port: 4 out of 25 logical ports have no user assigned specific location constraint (LOC). This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all pin locations. This design will fail to generate a bitstream unless all logical ports have a user specified site LOC constraint defined.  To allow bitstream creation with unspecified pin locations (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks UCIO-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run.  Problem ports: led[10], led[9], led[8], and led[7].. ]", 16, false); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "port;-;led[10];-;;-;10;-;"); // u.d (PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic (4)", 9); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic (3)", 8); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+runTclCommand (PAResourceOtoP.PAViews_SCHEMATIC, "select_objects [get_nets led]"); // j (PAResourceOtoP.PAViews_SCHEMATIC, PlanAheadTabSchematic)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("keyboardTo7SD_TOP.v", 166, 240); // ae (keyboardTo7SD_TOP.v)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic (4)", 9); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "displayDriver.v", 7); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenSegmentDisplayDecoder.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("sevenSegmentDisplayDecoder.v", 88, 32); // ae (sevenSegmentDisplayDecoder.v)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 04h:04m:10s
+// Tcl Message: ERROR: [Common 17-180] Spawn failed: No error 
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 04h:04m:15s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic", 1); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 25, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton(PAResourceQtoS.SaveProjectUtils_CANCEL, "Cancel", "Save Project"); // a (PAResourceQtoS.SaveProjectUtils_CANCEL)
+// 'cM' command handler elapsed time: 3 seconds
+dismissDialog("Save Project"); // ac.d (dialog92)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 25, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save", "Save Project"); // a (PAResourceQtoS.SaveProjectUtils_SAVE)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Save Project"); // ac.d (dialog93)
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 04h:04m:40s
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+// 'cM' command handler elapsed time: 4 seconds
+dismissDialog("Launch Runs"); // cP (dialog94)
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 8 
+// Tcl Message: ERROR: [Common 17-180] Spawn failed: No error 
+// Tcl Message: [Sat Apr  5 23:27:01 2025] Launched impl_1... Run output will be captured here: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/impl_1/runme.log 
+// Tcl Message: ERROR: [Common 17-39] 'launch_runs' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_runs' failed due to earlier errors.  
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 04h:04m:44s
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK", "Launch Run Critical Messages"); // f (PAResourceAtoD.CmdMsgDialog_OK)
+dismissDialog("Launch Run Critical Messages"); // bc (dialog95)
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 10 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 25, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+dismissDialog("Launch Runs"); // cP (dialog96)
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 8 
+// Tcl Message: [Sat Apr  5 23:27:15 2025] Launched impl_1... Run output will be captured here: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bh (Generate Bitstream Progress)
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 46 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK", "Bitstream Generation Failed"); // a (RDIResource.BaseDialog_OK)
+// Run Command: PAResourceCommand.PACommandNames_LOG_WINDOW
+dismissDialog("Bitstream Generation Failed"); // W.a (dialog97)
+// [GUI Memory]: 296 MB (+1530kb) [10:14:12]
+// Elapsed time: 14 seconds
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h (PAResourceOtoP.ProjectTab_RELOAD)
+// TclEventType: ELABORATE_START
+// TclEventType: MSGMGR_REFRESH_MSG
+// Tcl Message: refresh_design 
+// Tcl Message: INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes. 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2956.816 ; gain = 0.578 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: ELABORATE_FINISH
+// TclEventType: DESIGN_REFRESH
+// Engine heap size: 1,853 MB. GUI used memory: 187 MB. Current time: 4/5/25, 11:28:29 PM AEDT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,853 MB. GUI used memory: 188 MB. Current time: 4/5/25, 11:28:29 PM AEDT
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 2956.816 ; gain = 0.578 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 2956.816 ; gain = 0.578 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 2956.816 ; gain = 0.578 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 1,853 MB. GUI used memory: 187 MB. Current time: 4/5/25, 11:28:31 PM AEDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1083 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2959.148 ; gain = 0.000 
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Parsing XDC File [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/constrs_1/new/K27SD_constraints.xdc] 
+// Tcl Message: Finished Parsing XDC File [C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/constrs_1/new/K27SD_constraints.xdc] Completed Processing XDC Constraints  
+// Tcl Message: refresh_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 2959.148 ; gain = 2.910 
+// Elapsed time: 14 seconds
+dismissDialog("Reloading"); // bh (Reloading Progress)
+// Xgd.load filename: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/.Xil/Vivado-3764-NUC_M15_NK/xc7a35t_detail.xgd_3B20 elapsed time: 1.5s
+// DeviceModel: Load Xgds SwingWorker Join Forever elapsed time: 1.7s
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK", "Critical Messages"); // f (PAResourceAtoD.CmdMsgDialog_OK)
+dismissDialog("Critical Messages"); // J (dialog98)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "K27SD_constraints.xdc", 5); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("K27SD_constraints.xdc", 797, 168); // ae (K27SD_constraints.xdc)
+selectCodeEditor("K27SD_constraints.xdc", 681, 180); // ae (K27SD_constraints.xdc)
+selectCodeEditor("K27SD_constraints.xdc", 749, 182); // ae (K27SD_constraints.xdc)
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "displayDriver.v", 7); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "K27SD_constraints.xdc", 5); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "keyboardTo7SD_TOP.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 25, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton(RDIResource.BaseDialog_YES, "Yes", "Synthesis is Out-of-date"); // a (RDIResource.BaseDialog_YES)
+dismissDialog("Synthesis is Out-of-date"); // u (dialog99)
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// Tcl Message: INFO: [Project 1-1161] Replacing file C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.srcs/utils_1/imports/synth_1/PS2_data_capture.dcp with file C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/synth_1/keyboardTo7SD_TOP.dcp 
+// TclEventType: FILE_SET_CHANGE
+selectButton(RDIResource.BaseDialog_OK, "OK", "Launch Runs"); // a (RDIResource.BaseDialog_OK)
+// 'cM' command handler elapsed time: 3 seconds
+dismissDialog("Launch Runs"); // cP (dialog100)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 8 
+// Tcl Message: [Sat Apr  5 23:29:10 2025] Launched synth_1... Run output will be captured here: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/synth_1/runme.log [Sat Apr  5 23:29:11 2025] Launched impl_1... Run output will be captured here: C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bh (Generate Bitstream Progress)
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 158 seconds
+selectRadioButton(PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER, "Open Hardware Manager"); // a (PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER)
+selectRadioButton(PAResourceCommand.PACommandNames_GOTO_IMPLEMENTED_DESIGN, "Open Implemented Design"); // a (PAResourceCommand.PACommandNames_GOTO_IMPLEMENTED_DESIGN)
+selectRadioButton(PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER, "Open Hardware Manager"); // a (PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER)
+selectButton(RDIResource.BaseDialog_OK, "OK", "Bitstream Generation Completed"); // a (RDIResource.BaseDialog_OK)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl (Dont Echo) Command: 'rdi::info_commands get_hw_probes'
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // x (PAResourceOtoP.PAViews_PROJECT_SUMMARY, PlanAheadTabProject Summary)
+dismissDialog("Bitstream Generation Completed"); // W.a (dialog101)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (PAResourceOtoP.ProgramDebugTab_OPEN_TARGET)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // aq (PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, auto_connect_target_menu)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server -allow_non_jtag 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0 INFO: [Labtools 27-3417] Launching cs_server... 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:   ******** Xilinx cs_server v2024.2.0   ****** Build date   : Oct 31 2024-05:19:07     **** Build number : 2024.2.1730312347       ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.       ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.    
+// Tcl Message: ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.  Targets(s) ", jsn-Basys3-210183B15957A" may be locked by another hw_server. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.  Targets(s) ", jsn-Basys3-210183B15957A" may be locked by another hw_server.  
+dismissDialog("Auto Connect"); // bh (Auto Connect Progress)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK", "Critical Messages"); // f (PAResourceAtoD.CmdMsgDialog_OK)
+dismissDialog("Critical Messages"); // a (dialog102)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (PAResourceOtoP.ProgramDebugTab_OPEN_TARGET)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // aq (PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, auto_connect_target_menu)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server -allow_non_jtag 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0 INFO: [Labtools 27-3417] Launching cs_server... 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:   ******** Xilinx cs_server v2024.2.0   ****** Build date   : Oct 31 2024-05:19:07     **** Build number : 2024.2.1730312347       ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.       ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.    
+// Tcl Message: ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.  Targets(s) ", jsn-Basys3-210183B15957A" may be locked by another hw_server. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.  Targets(s) ", jsn-Basys3-210183B15957A" may be locked by another hw_server.  
+dismissDialog("Auto Connect"); // bh (Auto Connect Progress)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK", "Critical Messages"); // f (PAResourceAtoD.CmdMsgDialog_OK)
+dismissDialog("Critical Messages"); // a (dialog103)
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h (PAResourceOtoP.ProgramDebugTab_OPEN_TARGET)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // aq (PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, auto_connect_target_menu)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server -allow_non_jtag 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0 INFO: [Labtools 27-3417] Launching cs_server... 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:   ******** Xilinx cs_server v2024.2.0   ****** Build date   : Oct 31 2024-05:19:07     **** Build number : 2024.2.1730312347       ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.       ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.    
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183B15957A 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/impl_1/keyboardTo7SD_TOP.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: current_hw_device [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Auto Connect"); // bh (Auto Connect Progress)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h (PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program", "Program Device"); // a (PAResourceOtoP.ProgramFpgaDialog_PROGRAM, RDIResource.BaseDialog_OK)
+dismissDialog("Program Device"); // aT (dialog104)
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/getni/ENGN4213-FPGA-Assignment/keyboardTo7SD/keyboardTo7SD.runs/impl_1/keyboardTo7SD_TOP.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'E' command handler elapsed time: 3 seconds
+dismissDialog("Program Device"); // bh (Program Device Progress)
