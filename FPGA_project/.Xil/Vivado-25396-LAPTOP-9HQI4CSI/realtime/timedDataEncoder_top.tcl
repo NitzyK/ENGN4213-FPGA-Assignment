@@ -41,16 +41,21 @@ set rt::rc [catch {
     set rt::useElabCache false
     if {$rt::useElabCache == false} {
       rt::read_verilog {
-      C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/SingleLetterEncoder.srcs/sources_1/new/FSM.v
-      C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/SingleLetterEncoder.srcs/sources_1/imports/new/clockDividerHB2.v
-      {C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/SingleLetterEncoder.srcs/sources_1/imports/Activity 3/debouncer.v}
-      {C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/SingleLetterEncoder.srcs/sources_1/imports/Activity 3/spot.v}
-      C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/SingleLetterEncoder.srcs/sources_1/new/SingleLetterEncoder_top.v
+      C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/lvl2.2.1_timedDataEncoder.srcs/sources_1/imports/FPGA_project/SingleLetterEncoder.srcs/sources_1/new/FSM.v
+      C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/lvl2.2.1_timedDataEncoder.srcs/sources_1/imports/imports/new/clockDividerHB2.v
+      C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/lvl2.2.1_timedDataEncoder.srcs/sources_1/imports/FPGA_project/SingleLetterEncoder.srcs/sources_1/new/coordinatesGenerator_top.v
+      {C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/lvl2.2.1_timedDataEncoder.srcs/sources_1/imports/imports/Activity 3/debouncer.v}
+      C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/displayDriver.v
+      C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/lvl2.2.1_timedDataEncoder.srcs/sources_1/imports/new/polybiusEncoder.v
+      C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/lvl2.2.1_timedDataEncoder.srcs/sources_1/imports/FPGA_project/SingleLetterEncoder.srcs/sources_1/new/sevenSegmentDisplayDecoder.v
+      {C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/lvl2.2.1_timedDataEncoder.srcs/sources_1/imports/imports/Activity 3/spot.v}
+      C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/lvl2.2.1_timedDataEncoder.srcs/sources_1/imports/FPGA_project/toKeyboardHexEncoder.srcs/sources_1/new/toKeyboardHexEncoder.v
+      C:/Users/jesse/ENGN4213-FPGA-Assignment/FPGA_project/lvl2.2.1_timedDataEncoder.srcs/sources_1/new/timedDataEncoder_top.v
     }
       rt::filesetChecksum
     }
     rt::set_parameter usePostFindUniquification false
-    set rt::top SingleLetterEncoder_top
+    set rt::top timedDataEncoder_top
     rt::set_parameter enableIncremental true
     rt::set_parameter markDebugPreservationLevel "enable"
     set rt::reportTiming false
