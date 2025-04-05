@@ -24,7 +24,7 @@ module displayDriver(
 input wire clk,
 output wire [6:0] ssdAnode,
 output reg [3:0] ssdCathode,
-input wire [7:0] displayValues
+input wire [7:0] displayValues // change to [31:0] for 4 Hex inputs
     );
     
         clockDividerHB clk_div_inst (
@@ -52,15 +52,15 @@ always @(*) begin
              ssdCathode = 4'b0111;
         end
         4'b1011 : begin 
-             ssdValue = 8'h32; // 2nd digit of number '37'
+             ssdValue = 8'h32; // 2nd digit of number '37' //CHANNGE
              ssdCathode = 4'b1011;
         end
         4'b1101 : begin 
-             ssdValue = 8'h21; // 2nd digit of number '37'
-             ssdCathode = 4'b1101;
+             ssdValue = 8'h21; // 2nd digit of number '37' //CHANGE
+             ssdCathode = 4'b1101; 
         end
         4'b1110 : begin 
-             ssdValue = 8'h23; // 2nd digit of number '37'
+             ssdValue = 8'h23; // 2nd digit of number '37' //CHANGE
              ssdCathode = 4'b1110;
         end
         default : begin
