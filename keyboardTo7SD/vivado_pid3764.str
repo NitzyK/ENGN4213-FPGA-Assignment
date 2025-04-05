@@ -4140,3 +4140,21 @@ dismissDialog("Reloading"); // bh (Reloading Progress)
 // TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
 selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design, Schematic]", 17, false); // g (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
 // Run Command: PAResourceCommand.PACommandNames_SCHEMATIC
+// Elapsed time: 57 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "displayDriver.v", 7); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic (4)", 9); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "displayDriver.v", 7); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("displayDriver.v", 292, 110); // ae (displayDriver.v)
+// Elapsed time: 13 seconds
+selectCodeEditor("displayDriver.v", 330, 242); // ae (displayDriver.v)
+// Elapsed time: 20 seconds
+selectCodeEditor("displayDriver.v", 552, 254); // ae (displayDriver.v)
+selectCodeEditor("displayDriver.v", 554, 358); // ae (displayDriver.v)
+selectCodeEditor("displayDriver.v", 554, 353); // ae (displayDriver.v)
+selectCodeEditor("displayDriver.v", 554, 353); // ae (displayDriver.v)
+selectCodeEditor("displayDriver.v", 554, 367); // ae (displayDriver.v)
+selectCodeEditor("displayDriver.v", 529, 276); // ae (displayDriver.v)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:42m:11s

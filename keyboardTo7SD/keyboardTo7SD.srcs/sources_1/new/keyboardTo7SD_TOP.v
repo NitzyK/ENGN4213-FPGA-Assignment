@@ -26,18 +26,20 @@ module keyboardTo7SD_TOP(
     input wire PS2_clk,
     
     output wire [6:0] ssdAnode, 
-    output wire [3:0] ssdCathode
+    output wire [3:0] ssdCathode,
+    output wire [7:0] led
     );
-    
-    
+    wire [10:0] PS2_data_out;
 
 PS2_data_capture signaldecoder(
 .clk(clk),
 .PS2_data_in(PS2_data_in),
 .PS2_clk(PS2_clk),
 .PS2_data_out(PS2_data_out)
+
 );
 
+ assign led = PS2_data_out[8:1];
 
 
 displayDriver displayDriver_inst (
@@ -45,7 +47,7 @@ displayDriver displayDriver_inst (
 .clk(clk),
 .ssdAnode(ssdAnode), 
 .ssdCathode(ssdCathode),
-.displayValues(PS2_data_out)
+.displayValues(PS2_data_out[8:1])
 );
 
 endmodule

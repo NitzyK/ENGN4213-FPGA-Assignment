@@ -1,5 +1,5 @@
 module sevenSegmentDisplayDecoder(
-    input [7:0] hex_value,  
+    input wire [7:0] hex_value,  
     output reg [6:0] ssd     
 );
 
