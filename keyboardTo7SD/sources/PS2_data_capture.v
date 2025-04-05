@@ -58,7 +58,7 @@ always @(negedge ps2_clk_negedge_delayed)begin
         end
     else counter <= counter +1;
 end
-
+// testing but this isnt right
 
     
 endmodule
