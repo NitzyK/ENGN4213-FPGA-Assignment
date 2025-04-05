@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
 
-module SingleLetterEncoder_top(
-    input wire clk, reset, view,
+module coordinatesGenerator_top(
+    input wire clk, reset,
     input wire btn_1,
     output wire tap,
-    output wire [1:0] counter, 
+    output wire [1:0] counter, // debugging
     output wire [2:0] n_coords, 
     output wire [2:0] m_coords,
-    output wire [2:0] stateLED
+    output wire [2:0] stateLED // debugging
     );
-
+// spot and debounce btn_1 which becomes the tap signal
 debouncer debouncer_btn_1(
     .switchIn(btn_1),
     .clk(clk),
@@ -23,6 +23,7 @@ spot spot_btn_1(
     .spot_out(tap)
 );
 
+// instantiate FSM which outputs the n_coords and m_coords 
 FSM FSM_inst (
     .clk(clk),
     .tap(tap),
