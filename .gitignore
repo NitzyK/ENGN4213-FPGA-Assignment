@@ -1,27 +1,21 @@
-# Vivado garbage
-**/*.jou
-**/*.log
-**/*.str
-**/*.pb
-**/*.xml
-**/*.html
-**/*.backup
-**/*.tmp
-**/.Xil/
-**/*.cache/
-**/*.hw/
-**/*.ip_user_files/
-**/*.runs/
-**/*.sim/
-**/*.webtalk/
+# Vivado project directory
+/vivado/
 
-# Backup and editor junk
-*~
-*.bak
+# Vivado generated directories
+*.log
+*.jou
+*.xml
+*.xpr
+*.runs/
+*.cache/
+*.hw/
+*.bit
+*.bin
+*.lsdb
+*.prj
+*.xise
+
+# Temporary files
 *.swp
-*.swo
-.DS_Store
-Thumbs.db
-
-# Ignore project directories if auto-generated
-**/vivado/*
+*.bak
+*.tmp
