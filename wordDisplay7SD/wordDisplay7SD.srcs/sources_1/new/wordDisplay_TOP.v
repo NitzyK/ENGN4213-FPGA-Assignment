@@ -58,7 +58,7 @@ spot spot_inst_W(
 .spot_out(btn_W_spot)
 );
 
-clockDividerHB oneSecClk(
+clockDividerHB #(.THRESHOLD(3_333_333)) oneSecClk(
 .clk(),
 .enable(SW),
 .reset(1'b0),
@@ -68,16 +68,13 @@ clockDividerHB oneSecClk(
 
 always @(posedge clk) begin 
 
-    if(btn_E_spot) wordCount <= wordCount +1;
-    else if(btn_W_spot) wordCount <= wordCount -1;
+    if((btn_E_spot || beat) & wordCount != 6'd3) wordCount <= wordCount +1;
+    else if(btn_W_spot & wordCount != 6'd0) wordCount <= wordCount -1;
+    else wordCount <= 4'd0;
     
 end
 
-always @(posedge beat) begin
-    if(wordCount != 6'd3) wordCount <= wordCount +1;
-    else wordCount <= 4'd0;
 
-end
 
 
 //wire [7:0] word2 = 32'hFF242D1C; 
