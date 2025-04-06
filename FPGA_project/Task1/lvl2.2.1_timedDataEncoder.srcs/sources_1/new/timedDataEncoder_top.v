@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module timedDataEncoder_top(
-    input wire clk,reset, btn1,
+    input wire clk,reset, btn1, view,
     output wire [2:0] m_coords,
     output wire [2:0] n_coords,
     output wire [2:0] stateLED,
@@ -39,7 +39,7 @@ coordinatesGenerator coordinatesGenerator_inst(
 
 wire [7:0] keyboardHex_n;
 wire [7:0] keyboardHex_m;
-wire [31:0] displayValues;
+reg [31:0] displayValues;
 wire [7:0] letter;
 
 toKeyboardHexEncoder toKeyboardHexEncoder_n(
@@ -59,7 +59,20 @@ polybiusEncoder polybiusEncoder_inst(
 );
 
 
-assign displayValues = {letter, 8'h00, keyboardHex_m, keyboardHex_n};
+// Use a clocked process instead for display values
+always @(posedge clk) begin
+    if (reset) begin
+        displayValues <= 32'h00000000; // Clear on reset
+    end
+    else begin
+        case(view)
+            1'b0: displayValues <= {letter, 8'h00, 8'h00, 8'h00};
+            1'b1: displayValues <= {letter, 8'h00, keyboardHex_m, keyboardHex_n};
+            default: displayValues <= {letter, 8'h00, 8'h00, 8'h00};
+        endcase
+    end
+end
+// assign displayValues = {letter, 8'h00, keyboardHex_m, keyboardHex_n};
 
 displayDriver displayDriver_inst(
 .clk(clk), 
