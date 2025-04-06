@@ -6,7 +6,7 @@ output wire debounceout);
 
 //you write the code!
 wire beat;
-clockDividerHB #(.THRESHOLD(3_333_333)) clockdividerHB_inst (
+clockDividerHB #(.THRESHOLD(2_222_222)) clockdividerHB_inst (
 .enable(1'b1),
 .reset(reset),
 .clk(clk),
