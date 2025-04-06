@@ -14,6 +14,8 @@
 *.lsdb
 *.prj
 *.xise
+*.str
+*.dmp
 
 # Temporary files
 *.swp

@@ -67,13 +67,19 @@ clockDividerHB #(.THRESHOLD(3_333_333)) oneSecClk(
 );
 
 always @(posedge clk) begin 
-
-    if((btn_E_spot || beat) & wordCount != 6'd3) wordCount <= wordCount +1;
-    else if(btn_W_spot & wordCount != 6'd0) wordCount <= wordCount -1;
-    else wordCount <= 4'd0;
-    
-end
-
+ 
+ if(btn_E_spot) wordCount <= wordCount +1;
+ else if(btn_W_spot) wordCount <= wordCount -1;
+     if(btn_E_spot) wordCount <= wordCount +1;
+     else if(btn_W_spot) wordCount <= wordCount -1;
+     
+ end
+ 
+ always @(posedge beat) begin
+     if(wordCount != 6'd3) wordCount <= wordCount +1;
+     else wordCount <= 4'd0;
+ 
+ end
 
 
 
