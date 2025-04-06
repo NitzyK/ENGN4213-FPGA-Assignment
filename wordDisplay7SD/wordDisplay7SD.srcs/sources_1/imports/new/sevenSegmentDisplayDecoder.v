@@ -33,7 +33,10 @@ module sevenSegmentDisplayDecoder(
             8'h1B: ssd = 7'b0100100; // 'S' - segments a,c,d,f,g on (similar to '5')
             8'h2C: ssd = 7'b1110000; // 't' - segments d,e,f,g on
             
-            default: ssd = 7'b1111111; // All segments off for unrecognized codes
+            //error
+            8'hAA: ssd = 7'b1111100;
+            
+            default: ssd = 7'b1111110; // All segments off for unrecognized codes
         endcase
     end
 

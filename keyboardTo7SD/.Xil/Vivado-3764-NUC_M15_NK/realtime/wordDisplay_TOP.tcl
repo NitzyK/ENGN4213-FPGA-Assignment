@@ -43,7 +43,10 @@ set rt::rc [catch {
       rt::read_verilog {
       C:/Users/getni/ENGN4213-FPGA-Assignment/wordDisplay7SD/wordDisplay7SD.srcs/sources_1/new/clockDividerHB.v
       C:/Users/getni/ENGN4213-FPGA-Assignment/wordDisplay7SD/wordDisplay7SD.srcs/sources_1/new/debouncer.v
+      C:/Users/getni/ENGN4213-FPGA-Assignment/wordDisplay7SD/wordDisplay7SD.srcs/sources_1/imports/new/displayDriver.v
+      C:/Users/getni/ENGN4213-FPGA-Assignment/wordDisplay7SD/wordDisplay7SD.srcs/sources_1/imports/new/sevenSegmentDisplayDecoder.v
       C:/Users/getni/ENGN4213-FPGA-Assignment/wordDisplay7SD/wordDisplay7SD.srcs/sources_1/new/spot.v
+      C:/Users/getni/ENGN4213-FPGA-Assignment/wordDisplay7SD/wordDisplay7SD.srcs/sources_1/new/wordSelect.v
       C:/Users/getni/ENGN4213-FPGA-Assignment/wordDisplay7SD/wordDisplay7SD.srcs/sources_1/new/wordDisplay_TOP.v
     }
       rt::filesetChecksum
