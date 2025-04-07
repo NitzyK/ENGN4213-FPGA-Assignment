@@ -7,8 +7,9 @@ module polybiusEncrypterOptions(
     input wire [2:0] n_coords,       
     output wire [7:0] letter_encrypted,
     output reg [4:0] extract_coords,
-    output wire [4:0] coords    
-);
+    output reg [2:0] encrypted_m_coords,
+    output reg [2:0] encrypted_n_coords   
+); 
 
 reg [7:0] polybius_flat [0:24];  // define an array of 25x 8 bit elements
 
@@ -49,12 +50,20 @@ end
 
 always @(*) begin
     case(encrypterSelector)
-    1'b0: extract_coords = ((n_coords - 1) * 5) + (m_coords - 1);
-    1'b1: extract_coords = ((5 - m_coords) * 5) + (5 - n_coords);
+    1'b0: begin
+    extract_coords = ((n_coords - 1) * 5) + (m_coords - 1);
+    encrypted_m_coords = n_coords;
+    encrypted_n_coords = m_coords;
+    end
+    1'b1: begin
+    extract_coords = ((5 - m_coords) * 5) + (5 - n_coords);
+    encrypted_m_coords = 6 - m_coords;
+    encrypted_n_coords = 6 - n_coords;
+    end
     endcase
 end
 
-assign coords = extract_coords; 
+//assign coords = extract_coords; 
 
 assign letter_encrypted = polybius_flat[extract_coords]; 
  
