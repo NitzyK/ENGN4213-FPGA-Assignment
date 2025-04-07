@@ -9,7 +9,7 @@
  
  
  ## Switches
- #set_property -dict { PACKAGE_PIN V17   IOSTANDARD LVCMOS33 } [get_ports {sw[0]}]
+# set_property -dict { PACKAGE_PIN V17   IOSTANDARD LVCMOS33 } [get_ports {SW}]
  #set_property -dict { PACKAGE_PIN V16   IOSTANDARD LVCMOS33 } [get_ports {sw[1]}]
  #set_property -dict { PACKAGE_PIN W16   IOSTANDARD LVCMOS33 } [get_ports {sw[2]}]
  #set_property -dict { PACKAGE_PIN W17   IOSTANDARD LVCMOS33 } [get_ports {sw[3]}]
@@ -24,7 +24,7 @@
  #set_property -dict { PACKAGE_PIN W2    IOSTANDARD LVCMOS33 } [get_ports {sw[12]}]
  #set_property -dict { PACKAGE_PIN U1    IOSTANDARD LVCMOS33 } [get_ports {sw[13]}]
  #set_property -dict { PACKAGE_PIN T1    IOSTANDARD LVCMOS33 } [get_ports {sw[14]}]
- #set_property -dict { PACKAGE_PIN R2    IOSTANDARD LVCMOS33 } [get_ports {sw[15]}]
+ set_property -dict { PACKAGE_PIN R2    IOSTANDARD LVCMOS33 } [get_ports {SW}]
  
  
  ## LEDs
@@ -40,10 +40,10 @@
 # set_property -dict { PACKAGE_PIN V3    IOSTANDARD LVCMOS33 } [get_ports {PS2_data_out[9]}]
 # set_property -dict { PACKAGE_PIN W3    IOSTANDARD LVCMOS33 } [get_ports {PS2_data_out[10]}]
  #set_property -dict { PACKAGE_PIN U3    IOSTANDARD LVCMOS33 } [get_ports {PS2_data_out[11]}]
- #set_property -dict { PACKAGE_PIN P3    IOSTANDARD LVCMOS33 } [get_ports {PS2_data_out[12]}]
- #set_property -dict { PACKAGE_PIN N3    IOSTANDARD LVCMOS33 } [get_ports {PS2_data_out[13]}]
- #set_property -dict { PACKAGE_PIN P1    IOSTANDARD LVCMOS33 } [get_ports {PS2_data_out[14]}]
- #set_property -dict { PACKAGE_PIN L1    IOSTANDARD LVCMOS33 } [get_ports {PS2_data_out[15]}]
+# #set_property -dict { PACKAGE_PIN P3    IOSTANDARD LVCMOS33 } [get_ports {PS2_data_out[12]}]
+# set_property -dict { PACKAGE_PIN N3    IOSTANDARD LVCMOS33 } [get_ports {right_key_spot}]
+# set_property -dict { PACKAGE_PIN P1    IOSTANDARD LVCMOS33 } [get_ports {left_key_spot}]
+ set_property -dict { PACKAGE_PIN L1    IOSTANDARD LVCMOS33 } [get_ports {SW_led}]
  
  
  #7 Segment Display
@@ -134,9 +134,9 @@
  #set_property -dict { PACKAGE_PIN A18   IOSTANDARD LVCMOS33 } [get_ports RsTx]
  
  
- #USB HID (PS/2)
-# set_property -dict { PACKAGE_PIN C17   IOSTANDARD LVCMOS33   PULLUP true } [get_ports PS2_clk]
-# set_property -dict { PACKAGE_PIN B17   IOSTANDARD LVCMOS33   PULLUP true } [get_ports PS2_data_in]
+# USB HID (PS/2)
+ set_property -dict { PACKAGE_PIN C17   IOSTANDARD LVCMOS33   PULLUP true } [get_ports PS2_clk]
+ set_property -dict { PACKAGE_PIN B17   IOSTANDARD LVCMOS33   PULLUP true } [get_ports PS2_data]
  
  
  ##Quad SPI Flash

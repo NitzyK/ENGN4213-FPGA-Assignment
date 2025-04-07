@@ -27,7 +27,7 @@ output reg [3:0] ssdCathode,
 input wire [31:0] displayValues // change to [31:0] for 4 Hex inputs
     );
     
-        clockDividerHB #(.THRESHOLD(50_000)) clk_div_inst  (
+        clockDividerHB #(.THRESHOLD(75_000)) clk_div_inst  (
         .clk(clk),
         .reset(1'b0),
         .dividedClk(),
@@ -39,8 +39,9 @@ input wire [31:0] displayValues // change to [31:0] for 4 Hex inputs
     
 
 
-always @(posedge beat) begin
-    activeDisplay <= {activeDisplay[2:0], activeDisplay[3]}; // Shift left and wrap around
+always @(posedge clk) begin
+
+    if(beat) activeDisplay <= {activeDisplay[2:0], activeDisplay[3]}; // Shift left and wrap around
     end
 
 // 3. Define the behavior for each display using a case structure
