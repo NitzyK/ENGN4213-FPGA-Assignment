@@ -70,7 +70,8 @@ module PS2_data_capture(
     input wire clk,
     input wire PS2_data_in,
     input wire PS2_clk,
-    output reg [10:0] PS2_data_out
+    output reg [10:0] PS2_data_out,
+    output wire break_flag
 );
 
 // Internal registers
@@ -88,7 +89,7 @@ always @(posedge clk) begin
     PS2_clk_sync <= {PS2_clk_sync[0], PS2_clk};
 end
 
-// One-shot pulse generator (you need to implement this module separately)
+
 spot spot_ps2_clk (
     .clk(clk),
     .spot_in(ps2_clk_negedge),

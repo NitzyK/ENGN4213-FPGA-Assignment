@@ -1,0 +1,13 @@
+0.7
+2020.2
+Nov  8 2024
+22:36:57
+C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.sim/sim_1/behav/xsim/glbl.v,1724786425,verilog,,,,glbl,,,,,,,,
+C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sim_1/new/tb_clockDividerHB.v,1744249583,verilog,,,,tb_clockDividerHB,,,,,,,,
+C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sim_1/new/uart_tx_rx_tb.v,1744254301,verilog,,C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sim_1/new/tb_clockDividerHB.v,,uart_tb,,,,,,,,
+C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sources_1/imports/new/clockDividerHB.v,1741645279,verilog,,C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sim_1/new/uart_tx_rx_tb.v,,clockDividerHB,,,,,,,,
+C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sources_1/imports/new/clockDividerHB2.v,1741059959,verilog,,C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sources_1/new/uart_tx.v,,clockDividerHB2,,,,,,,,
+C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sources_1/new/RX_TOP.v,1744247543,verilog,,C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sources_1/imports/new/clockDividerHB.v,,RX_TOP,,,,,,,,
+C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sources_1/new/TX_TOP.v,1744249073,verilog,,C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sources_1/new/uart_rx.v,,TX_TOP,,,,,,,,
+C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sources_1/new/uart_rx.v,1744357269,verilog,,C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sources_1/new/RX_TOP.v,,uart_rx,,,,,,,,
+C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sources_1/new/uart_tx.v,1744357703,verilog,,C:/Users/getni/ENGN4213-FPGA-Assignment/uartProtocolImplementation/uartProtocolImplementation.srcs/sources_1/new/TX_TOP.v,,uart_tx,,,,,,,,
