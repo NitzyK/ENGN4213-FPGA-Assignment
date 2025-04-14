@@ -70,7 +70,8 @@ module PS2_data_capture(
     input wire clk,
     input wire PS2_data_in,
     input wire PS2_clk,
-    output reg [10:0] PS2_data_out
+    output reg [10:0] PS2_data_out,
+    output reg dv
 );
 
 // Internal registers
@@ -102,9 +103,11 @@ always @(posedge clk) begin
 
         if (counter == 4'd10) begin
             PS2_data_out <= {PS2_data_in, data_buffer[10:1]}; // Complete frame
+            dv <=1;
             counter <= 0;
         end else begin
             counter <= counter + 1;
+            dv <=0;
         end
     end
 end

@@ -1,64 +1,56 @@
-module ssDisplayDriver(
-    input wire clk,
-//    input wire [3:0] enableMask,            // Which displays are enabled
-//    input wire [27:0] displayValues,        // 4 digits: {disp3, disp2, disp1, disp0}
-    output reg [6:0] ssdAnode,             // Segment control
-    output reg [3:0] ssdCathode             // Digit selector (active low)
+`timescale 1ns / 1ps
+
+module displayDriver(
+    input wire clk, 
+    input wire [31:0] displayValues,
+    output wire [6:0] ssdAnode,
+    output reg [3:0] ssdCathode
 );
+////////////////////////////////Overview/////////////////////////////////////////////////////
 
-reg displayValues = 28'b101010101010101010101010101;
-reg enableMask = 4'b1010;
-// Beat signal from clock divider
-wire beat;
+// this module takes in a 32 bit value (a 4 letter word) and displays it to 
+// the 4x ssd by scanning 1 ssd at a time. 
 
-clockDividerHB clk_div_inst (
-    .clk(clk),
-    .reset(1'b0),
-    .dividedClk(),      // Not used
-    .enable(1'b1),
-    .beat(beat)     
-);
+////////////////////////////////Internal Signal Declaration//////////////////////////////////
+reg [3:0] activeDisplay = 4'b0111;
 
-// Counter to cycle through displays
-reg [1:0] displayIndex;
+////////////////////////////////scanning SSD ////////////////////////////////////////////////   
+clockDividerHB #( .THRESHOLD(125_000)) clk_div_inst ( .clk(clk), .reset(1'b0), .dividedClk(), .enable(1'b1), .beat(beat) );
+    
+always @(posedge clk) begin
+    if (beat) activeDisplay <= {activeDisplay[2:0], activeDisplay[3]}; // Shift left and wrap around
+    end
 
-always @(posedge beat) begin
-    displayIndex <= displayIndex + 1;
-end
-
+reg [7:0] ssdValue;
 always @(*) begin
-    // Default to all off
-    ssdCathode = 4'b1111;
-    ssdAnode = 4'd10; // undefined
-
-    case (displayIndex)
-        2'd0: begin
-            if (enableMask[0]) begin
-                ssdAnode = displayValues[6:0];
-                ssdCathode = 4'b1110;
-            end
+    case(activeDisplay)
+        4'b0111 : begin
+             ssdValue = displayValues[31:24]; // 1st SSD
+             ssdCathode = 4'b0111;
         end
-        2'd1: begin
-            if (enableMask[1]) begin
-                ssdAnode = displayValues[13:7];
-                ssdCathode = 4'b1101;
-            end
+        4'b1011 : begin 
+             ssdValue = displayValues[23:16]; // 2nd SSD
+             ssdCathode = 4'b1011;
         end
-        2'd2: begin
-            if (enableMask[2]) begin
-                ssdAnode = displayValues[20:14];
-                ssdCathode = 4'b1011;
-            end
+        4'b1101 : begin 
+             ssdValue = displayValues[15:8]; // 3rd SSD
+             ssdCathode = 4'b1101; 
         end
-        2'd3: begin
-            if (enableMask[3]) begin
-                ssdAnode = displayValues[27:21];
-                ssdCathode = 4'b0111;
-                displayIndex = 2'd0;
-            end
+        4'b1110 : begin 
+             ssdValue = displayValues[7:0]; // 4th SSD
+             ssdCathode = 4'b1110;
+        end
+        default : begin
+            ssdValue = 8'h00; // undefined
+            ssdCathode = 4'b1111;
         end
     endcase
 end
 
+////////////////////////////////Instantiate SSD decoder ////////////////////////////////////////////////   
+sevenSegmentDisplayDecoder ssdDecoder_inst(
+    .hex_value(ssdValue),
+    .ssd(ssdAnode)
+);
 
 endmodule
