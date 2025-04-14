@@ -1,0 +1,90 @@
+$date
+   Sun Apr 13 14:04:52 2025
+$end
+
+$version
+  2024.2.0
+  $dumpfile ("tb_toPS2.vcd") 
+$end
+
+$timescale
+  1ps
+$end
+
+$scope module tb_toPS2 $end
+$var reg 6 ! coordinates [5:0] $end
+$var wire 16 " PS2coordinates [15:0] $end
+$scope module uut $end
+$var wire 6 # coordinates [5:0] $end
+$var reg 16 $ PS2coordinates [15:0] $end
+$var wire 3 % m [2:0] $end
+$var wire 3 & n [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+
+#0
+$dumpvars
+b0 !
+b0 "
+b0 #
+b0 $
+b0 %
+b0 &
+$end
+
+#10000
+b1001 !
+b1011000010110 "
+b1001 #
+b1011000010110 $
+b1 %
+b1 &
+
+#20000
+b10011 !
+b1111000100110 "
+b10011 #
+b1111000100110 $
+b10 %
+b11 &
+
+#30000
+b11100 !
+b10011000100101 "
+b11100 #
+b10011000100101 $
+b11 %
+b100 &
+
+#40000
+b100101 !
+b10010100101110 "
+b100101 #
+b10010100101110 $
+b100 %
+b101 &
+
+#50000
+b101010 !
+b10111000011110 "
+b101010 #
+b10111000011110 $
+b101 %
+b10 &
+
+#60000
+b11 !
+b100110 "
+b11 #
+b100110 $
+b0 %
+b11 &
+
+#70000
+b101000 !
+b10111000000000 "
+b101000 #
+b10111000000000 $
+b101 %
+b0 &
