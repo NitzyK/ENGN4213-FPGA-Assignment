@@ -2,7 +2,8 @@
 
 module lvl3Encrypter2(
 input wire [5:0] coordinates,
-input wire m_seed, n_seed,
+input wire [2:0] m_seed, n_seed,
+output wire [7:0] seed, 
 output wire [7:0] letter_encrypted
 );
 ////////////////////////////////Overview//////////////////////////////////////////////
@@ -50,8 +51,12 @@ end
 assign m = coordinates[5:3];
 assign n = coordinates[2:0];
 
+
 // construct seed index from (m,n)
 assign seedIndex = ((m_seed - 1) * 5) + (n_seed - 1);
+
+assign seed = polybius_flat[seedIndex];
+
 
 // construct letter indexs from (m,n)
 assign letter_index = ((m - 1) * 5) + (n - 1); 
@@ -59,8 +64,8 @@ assign letter_index = ((m - 1) * 5) + (n - 1);
 //////////////////////////////////// Encryption ///////////////////////////////////////
 always @(*) begin
             if (letter_index == seedIndex) polybiusIndex <= 5'd0;
-            else if (letter_index > seedIndex) polybiusIndex <= 5'd25 - letter_index;
-            else if (letter_index < seedIndex) polybiusIndex <= 5'd24 - letter_index;
+            else if (letter_index > seedIndex) polybiusIndex <= 5'd24 - letter_index;
+            else if (letter_index < seedIndex) polybiusIndex <= 5'd25 - letter_index;
  end
 
 //////////////////////////////////// retrive encrypted letters ///////////////////////////////////////////

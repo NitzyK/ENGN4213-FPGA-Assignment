@@ -115,7 +115,7 @@ spot spot_btnW_inst( .clk(clk), .spot_in(btnW_debounced), .spot_out(btnW_process
 
 
 // use east west buttons to create an index i between 0-3
-eastWestShifter #(.max_index(4'd3)) eastWestShifter_inst ( .clk(clk), .reset(reset), .btn_E(btnE_processed), .btn_W(btnW_processed), .index(index));
+eastWestShifter eastWestShifter_inst ( .clk(clk), .reset(reset), .btn_E(btnE_processed), .btn_W(btnW_processed), .index(index));
 
 // use index to select the ith position retreiving the ith letter, encrypted letter, coordinate and encrypted coordinate
 always @(*) begin
@@ -186,6 +186,7 @@ always @(posedge clk) begin
 end
 
 displayDriver displayDriver_inst(.clk(clk), .ssdAnode(ssdAnode), .ssdCathode(ssdCathode), .displayValues(displayValues) );
+
 
 endmodule
 
