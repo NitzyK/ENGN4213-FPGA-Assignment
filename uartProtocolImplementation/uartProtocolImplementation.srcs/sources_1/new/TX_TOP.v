@@ -29,33 +29,28 @@ output wire busy
     
 wire beat;
 wire dividedClk;  // Optional, can be ignored
-wire reset = 0;
-wire enable = 1;
+wire reset;
+reg enable;
 
 clockDividerHB #(.THRESHOLD(10416)) baud_gen (
     .clk(clk),
     .reset(1'b0),
-    .enable(send),
+    .enable(enable),
     .dividedClk(),
     .beat(beat)
 );
 
 
-spot spot_inst(
-.clk(clk),
-.spot_in(send),
-.spot_out(send_spot)
-);
+
   
 uart_tx tx_inst (
 .clk(clk),
 .beat(beat),                 // From clockDividerHB2
 .data_in(8'hAF),
-.send(send_spot),
+.send(send),
 .tx(tx_out),
 .busy(busy)
 );
-
 
     
     

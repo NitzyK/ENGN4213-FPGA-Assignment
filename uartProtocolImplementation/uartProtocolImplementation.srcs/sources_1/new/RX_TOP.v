@@ -34,7 +34,7 @@ wire enable = 1;
 clockDividerHB2 #(.THRESHOLD(10416), .ON_TIME(100)) baud_gen (
     .clk(clk),
     .reset(1'b0),
-    .enable(send),
+    .enable(1'b1),
     .dividedClk(),
     .beat(beat)
 );
