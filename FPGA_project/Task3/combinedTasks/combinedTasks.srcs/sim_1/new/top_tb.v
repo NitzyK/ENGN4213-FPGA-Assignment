@@ -1,186 +1,177 @@
 `timescale 1ns / 1ps
 
-module top_tb();
+module top_tb;
 
-// Inputs
-reg clk;
-reg reset;
-reg btn1;
-reg btnE;
-reg btnW;
-reg task1;
-reg task2;
-reg task3;
-reg encrypterSelector;
-reg view;
-reg encrypt;
+    // Clock parameters
+    parameter CLK_PERIOD = 10; // 100MHz clock
+    
+    // UART parameters
+    parameter BAUD_RATE = 9600;
+    parameter BIT_PERIOD = 1_000_000_000/BAUD_RATE; // in ns
+    
+    // DUT inputs
+    reg clk = 0;
+    reg reset = 0;
+    reg btn1 = 0;
+    reg btnE = 0;
+    reg btnW = 0;
+    reg task1 = 0;
+    reg task2 = 0;
+    reg task3 = 0;
+    reg encrypterSelector = 0;
+    reg view = 0;
+    reg encrypt = 0;
+    reg rx = 1; // Idle high for UART
+    
+    // DUT outputs
+    wire tx;
+    wire [2:0] stateLED;
+    wire [1:0] state;
+    wire [7:0] tx_LED;
+    wire [6:0] ssdAnode;
+    wire [3:0] ssdCathode;
+    wire [2:0] send_counter;
 
-// Outputs
-wire [2:0] m_coords;
-wire [2:0] n_coords;
-wire [2:0] stateLED;
-wire [1:0] state;
-wire [6:0] ssdAnode;
-wire [3:0] ssdCathode;
-
-// Instantiate the Device Under Test (DUT)
-top uut (
-    .clk(clk), 
-    .reset(reset), 
-    .btn1(btn1), 
-    .btnE(btnE), 
-    .btnW(btnW), 
-    .task1(task1), 
-    .task2(task2), 
-    .task3(task3), 
-    .encrypterSelector(encrypterSelector), 
-    .view(view), 
-    .encrypt(encrypt), 
-    .m_coords(m_coords), 
-    .n_coords(n_coords), 
-    .stateLED(stateLED), 
-    .state(state), 
-    .ssdAnode(ssdAnode), 
-    .ssdCathode(ssdCathode)
-);
-
-// Internal signals to probe
-wire [31:0] T1_displayValues;
-wire [31:0] T2_displayValues;
-wire [7:0] T1_letter;
-wire [15:0] PS2_1;
-
-// Assign internal signals (for simulation visibility only)
-assign T1_displayValues = uut.T1_displayValues;
-assign T2_displayValues = uut.T2_displayValues;
-assign T1_letter = uut.T1_letter;
-assign PS2_1 = uut.PS2_1;
-
-// Generate a clock 
-initial begin
-    clk = 0;
-    forever #5 clk = ~clk; // 100MHz clock
-end
-
-// Test procedure
-initial begin
-    // Initialize inputs
-    reset = 1;
-    btn1 = 0;
-    btnE = 0;
-    btnW = 0;
-    task1 = 0;
-    task2 = 0;
-    task3 = 0;
-    encrypterSelector = 0;
-    view = 0;
-    encrypt = 0;
+    // Instantiate the DUT
+    top dut (
+        .clk(clk),
+        .reset(reset),
+        .btn1(btn1),
+        .btnE(btnE),
+        .btnW(btnW),
+        .task1(task1),
+        .task2(task2),
+        .task3(task3),
+        .encrypterSelector(encrypterSelector),
+        .view(view),
+        .encrypt(encrypt),
+        .rx(rx),
+        .tx(tx),
+        .stateLED(stateLED),
+        .state(state),
+        .tx_LED(tx_LED),
+        .ssdAnode(ssdAnode),
+        .ssdCathode(ssdCathode),
+        .send_counter(send_counter)
+    );
     
-    // Wait for global reset
-    #100;
-    reset = 0;
+    // Clock generation
+    always #(CLK_PERIOD/2) clk = ~clk;
     
-    // TEST TASK 1
-    #20;
-    $display("Testing TASK 1 mode");
-    task1 = 1;
-    task2 = 0;
-    task3 = 0;
+    // Task for sending a byte over UART rx
+    task send_uart_byte;
+        input [7:0] data;
+        integer i;
+        begin
+            // Start bit
+            rx = 0;
+            #BIT_PERIOD;
+            
+            // Data bits (LSB first)
+            for (i = 0; i < 8; i = i + 1) begin
+                rx = data[i];
+                #BIT_PERIOD;
+            end
+            
+            // Stop bit
+            rx = 1;
+            #BIT_PERIOD;
+        end
+    endtask
     
-    // Wait for state machine to update
-    #20;
-    $display("Current state: %b", state);
+    // Monitor tx output
+    reg [7:0] received_byte;
+    task receive_uart_byte;
+        output [7:0] data;
+        integer i;
+        begin
+            // Wait for start bit
+            @(negedge tx);
+            
+            // Wait half bit period to sample in the middle
+            #(BIT_PERIOD/2);
+            
+            // Check if it's a valid start bit
+            if (tx != 0) begin
+                $display("ERROR: Invalid start bit detected!");
+                data = 8'hFF; // Error code
+            end else begin
+                #BIT_PERIOD; // Move to first data bit
+                
+                // Sample data bits
+                for (i = 0; i < 8; i = i + 1) begin
+                    data[i] = tx;
+                    #BIT_PERIOD;
+                end
+                
+                // Check stop bit
+                if (tx != 1) begin
+                    $display("ERROR: Invalid stop bit detected!");
+                end
+                
+                // Wait a bit before next byte
+                #(BIT_PERIOD/2);
+            end
+        end
+    endtask
     
-    // Test coordinate generation
-    btn1 = 1;
-    #20;
-    btn1 = 0;
-    #20;
-    btn1 = 1;
-    #20;
-    btn1 = 0;
-    #20;
+    // Main test sequence
+    initial begin
+        // Initialize with a reset pulse
+        reset = 1;
+        #(CLK_PERIOD * 10);
+        reset = 0;
+        #(CLK_PERIOD * 10);
+        
+        // Set to Task 3 (UART mode)
+        task1 = 0;
+        task2 = 0;
+        task3 = 1;
+        #(CLK_PERIOD * 100); // Allow time for state to change
+        
+        // Send test data via UART rx
+        send_uart_byte(8'h2B); // ASCII 'F'
+        #(BIT_PERIOD * 2);     // Wait between bytes
+        
+        // Wait for processing and response
+        #(CLK_PERIOD * 1000);
+        
+        // Send another test byte
+        send_uart_byte(8'h1C); // ASCII 'A'
+        
+        // Wait for processing and response
+        #(CLK_PERIOD * 1000);
+        
+         // Send test data via UART rx
+        send_uart_byte(8'h1B); // ASCII 'S'
+        #(BIT_PERIOD * 2);     // Wait between bytes
+        
+        // Wait for processing and response
+        #(CLK_PERIOD * 1000);
+        
+        // Send another test byte
+        send_uart_byte(8'h2C); // ASCII 'T'
+        
+        // Wait for processing and response
+        #(CLK_PERIOD * 1000);
+        
+        // End simulation
+        #(CLK_PERIOD * 5000);
+        $finish;
+    end
     
-    // Check the values after coordinates are generated
-    $display("Task 1 - T1_coordinates: %h", uut.T1_coordinates);
-    $display("Task 1 - T1_letter: %h", T1_letter);
-    $display("Task 1 - PS2_1: %h", PS2_1);
-    $display("Task 1 - T1_coordinatesPS2: %h", uut.T1_coordinatesPS2);
-    $display("Task 1 - Display Values (view=0): %h", T1_displayValues);
+    // Monitor tx output (optional, can be removed if you just want to view waveforms)
+    initial begin
+        forever begin
+            receive_uart_byte(received_byte);
+            $display("Time: %t, Received byte: 0x%h", $time, received_byte);
+        end
+    end
     
-    // Change to view mode
-    view = 1;
-    #20;
-    $display("Task 1 - Display Values (view=1): %h", T1_displayValues);
-    
-    // TEST TASK 2
-    #100;
-    $display("\nTesting TASK 2 mode");
-    task1 = 0;
-    task2 = 1;
-    task3 = 0;
-    view = 0;
-    
-    // Wait for state machine to update
-    #20;
-    $display("Current state: %b", state);
-    
-    // Check the initial values
-    $display("Task 2 - wordLetters: %h", uut.wordLetters);
-    $display("Task 2 - T2_coordinates: %h", uut.T2_coordinates);
-    $display("Task 2 - Display Values (mode=000): %h", T2_displayValues);
-    
-    // Change view mode
-    view = 1;
-    #20;
-    $display("Task 2 - Display Values (mode=001): %h", T2_displayValues);
-    
-    // Test coordinate decryption & encryption
-    encrypt = 1;
-    view = 0;
-    #20;
-    $display("Task 2 - Display Values (mode=010): %h", T2_displayValues);
-    
-    view = 1;
-    #20;
-    $display("Task 2 - Display Values (mode=011): %h", T2_displayValues);
-    
-    // Test with different encrypter
-    encrypterSelector = 1;
-    view = 0;
-    #20;
-    $display("Task 2 - Display Values (mode=110): %h", T2_displayValues);
-    
-    view = 1;
-    #20;
-    $display("Task 2 - Display Values (mode=111): %h", T2_displayValues);
-    
-    // Look at specific signals around the issue
-    $display("\nDEBUGGING KEY SIGNALS");
-    $display("wordLetters_encrypted: %h", uut.wordLetters_encrypted);
-    $display("T2_coordinates_encrypted: %h", uut.T2_coordinates_encrypted);
-    
-    // Check Task 1 specific connections
-    task1 = 1;
-    task2 = 0;
-    #20;
-    $display("\nTask 1 DEBUG");
-    $display("toPS2_1coordinates: %h", uut.toPS2_1coordinates);
-    $display("PS2_1: %h", PS2_1);
-    $display("T1_letter from polybiusSquare: %h", T1_letter);
-    
-    // Check the signals that feed into the final display mux
-    $display("\nDISPLAY MUX SIGNALS");
-    $display("state: %b", state);
-    $display("taskDisplayValues: %h", uut.taskDisplayValues);
-    
-    $finish;
-end
-
-// Monitor important signals continuously
-initial begin
-    $monitor("Time=%0t, State=%b, T1_displayValues=%h, T2_displayValues=%h", 
-             $time, state, T1_displayValues, T2_displayValues);
-end
+    // Generate VCD file for waveform viewing
+    initial begin
+        $dumpfile("top_tb.vcd");
+        $dumpvars(0, top_tb);
+    end
 
 endmodule

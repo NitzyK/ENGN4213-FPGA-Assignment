@@ -151,4 +151,3 @@ set_property -dict { PACKAGE_PIN W19   IOSTANDARD LVCMOS33 } [get_ports btn1]
 
 ## Configuration options, can be used for all designs
 set_property CONFIG_VOLTAGE 3
-set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets clk_IBUF]

@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module top(
-input wire clk,reset, btn1, btnE, btnW, task1, task2, task3, encrypterSelector, view, encrypt, rx, send,
+input wire clk,reset, btn1, btnE, btnW, task1, task2, task3, encrypterSelector, view, encrypt, rx, //send,
 output wire tx,
 //output wire [2:0] m_coords,
 //output wire [2:0] n_coords,
@@ -10,7 +10,8 @@ output reg [1:0] state,
 output wire [7:0] tx_LED,
 //output wire [1:0] counter,
 output wire [6:0] ssdAnode,
-output wire [3:0] ssdCathode
+output wire [3:0] ssdCathode,
+output reg [2:0] send_counter = 3'd0
 );
 
 wire btn1_debounced;
@@ -32,9 +33,9 @@ spot spot_btnE_inst( .clk(clk), .spot_in(btnE_debounced), .spot_out(btnE_process
 debouncer debouncer_btnW_inst( .switchIn(btnW), .clk(clk), .reset(1'b0), .debounceout(btnW_debounced) );
 spot spot_btnW_inst( .clk(clk), .spot_in(btnW_debounced), .spot_out(btnW_processed) );
 
-// debounce and spot send
-debouncer debouncer_send_inst( .switchIn(send), .clk(clk), .reset(1'b0), .debounceout(send_debounced) );
-spot spot_send_inst( .clk(clk), .spot_in(send_debounced), .spot_out(send_processed) );
+//// debounce and spot send
+//debouncer debouncer_send_inst( .switchIn(send), .clk(clk), .reset(1'b0), .debounceout(send_debounced) );
+//spot spot_send_inst( .clk(clk), .spot_in(send_debounced), .spot_out(send_processed) );
 
 
 //////////// TASK SELECTOR ////////////////////////////
@@ -76,14 +77,32 @@ assign  tx_data = tx_data_reg;
 reg [7:0] encrytionIn;
 wire [7:0] seed;
 wire [7:0] T3_letter_encrypted;
+reg send_counter; 
+wire send;
+
+// Shift register for delaying rx_data_valid to generate send signal
+reg [3:0] send_delay_bits;
+
+always @(posedge clk) begin
+    send_delay_bits <= {send_delay_bits[2:0], rx_data_valid};
+end
+
+
+assign send = send_delay_bits[3];           // Second delay
+  
 assign  tx_LED = T3_letter_encrypted;//////////////////////////////////////////////////////////////////////////////////
 
 assign m_coords = T1_coordinates[5:3];
 assign n_coords = T1_coordinates[2:0];
 
+
+
 always @(posedge clk) begin
 ///////////////////////////TASK1 multiplexing/////////////////////////
-    if (state == TASK1) begin
+    if (reset) begin
+        send_counter <= 3'd0;    
+    end
+    else if (state == TASK1) begin
         T1_coordinates <= coordinates;
         T1_coordinatesPS2 <= PS2_1;
         case (view)
@@ -114,14 +133,18 @@ always @(posedge clk) begin
         endcase      
           
     end
+    
+ 
 ///////////////////////////TASK3 multiplexing/////////////////////////    
     else if (state == TASK3) begin
          if (rx_data_valid) begin
             letter_1 <= rx_data; // in PS2 hex
+
          end
-         
-         else if (send_processed) begin
+
+         else if (send) begin
             tx_data_reg <= T3_letter_encrypted;
+            send_counter <= send_counter + 1;
          end
          
          begin
@@ -145,15 +168,15 @@ wire [5:0] toPS2_1coordinates = (state == TASK1) ? T1_coordinates :
                                 (state == TASK2) ? T2_coordinates[23:18] :
                                 (state == TASK3) ? T3_coordinates :
                                 6'd0;                                  
-toPS2 toPS2_1( .coordinates(toPS2_1coordinates), .PS2coordinates(PS2_1) ); ////// convert binary coordinates to PS2
+toPS2 toPS2_1( .coordinates(toPS2_1coordinates),    .PS2coordinates(PS2_1) ); ////// convert binary coordinates to PS2
 toPS2 toPS2_2( .coordinates(T2_coordinates[17:12]), .PS2coordinates(PS2_2) );
-toPS2 toPS2_3( .coordinates(T2_coordinates[11:6]), .PS2coordinates(PS2_3) );
-toPS2 toPS2_4( .coordinates(T2_coordinates[5:0]), .PS2coordinates(PS2_4) );
+toPS2 toPS2_3( .coordinates(T2_coordinates[11:6]),  .PS2coordinates(PS2_3) );
+toPS2 toPS2_4( .coordinates(T2_coordinates[5:0]),   .PS2coordinates(PS2_4) );
 
 toPS2 toPS2_5( .coordinates(T2_coordinates_encrypted[23:18]), .PS2coordinates(PS2_5) ); ///// convert binary encrypted coordinates to PS2
 toPS2 toPS2_6( .coordinates(T2_coordinates_encrypted[17:12]), .PS2coordinates(PS2_6) );
-toPS2 toPS2_7( .coordinates(T2_coordinates_encrypted[11:6]), .PS2coordinates(PS2_7) );
-toPS2 toPS2_8( .coordinates(T2_coordinates_encrypted[5:0]), .PS2coordinates(PS2_8) );
+toPS2 toPS2_7( .coordinates(T2_coordinates_encrypted[11:6]),  .PS2coordinates(PS2_7) );
+toPS2 toPS2_8( .coordinates(T2_coordinates_encrypted[5:0]),   .PS2coordinates(PS2_8) );
 
 
 
@@ -182,7 +205,7 @@ lvl2Encrypter lvl2Encrypter_inst( .encrypterSelector(encrypterSelector), .wordCo
 
 uart_rx uart_rx_inst( .clk(clk), .rx(rx), .data(rx_data), .data_valid(rx_data_valid), .reset(reset) );
 
-uart_tx uart_tx_inst( .clk(clk), .tx(tx) , .busy(busy), .reset(reset), .send(send_processed), .data_in(tx_data) ); //.send(send_spot)
+uart_tx uart_tx_inst( .clk(clk), .tx(tx) , .busy(busy), .reset(reset), .send(send), .data_in(tx_data) ); //.send(send_spot)
 
 ///////////////////// Level 3 encrypter ////////////////////
 lvl3Encrypter2 lvl3Encrypter( .coordinates(coordinates_1), .m_seed(T3_coordinates[5:3]), .n_seed(T3_coordinates[2:0]), .letter_encrypted(T3_letter_encrypted), .seed(seed) );
