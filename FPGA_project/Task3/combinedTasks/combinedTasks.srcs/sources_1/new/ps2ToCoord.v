@@ -43,7 +43,7 @@ always @(*) begin
 			8'h1D : coordinates = 6'b101010; //x (w)
 			8'h22 : coordinates = 6'b101011; //x (x)
 			8'h35 : coordinates = 6'b101100; //x (y)
-			8'h1Z : coordinates = 6'b101101; //x (z)
+			8'h1A : coordinates = 6'b101101; //x (z)
 			
 
 			default : coordinates = 6'b000000; //default to 0,0

@@ -12,7 +12,7 @@ output wire [7:0] letter_encrypted
 ////////////////////////////////Internal Signal Declaration//////////////////////////
 wire [2:0] m, n;
 wire [4:0] seedIndex; // index of seed
-wire [4:0] letter_index;// index of unencrypted letter 
+wire [4:0] letter_index;// index of unencrypted letter  
 reg [7:0] polybius_flat [0:24];  // define an array of 25x 8 bit elements
 reg [4:0] polybiusIndex; // index of encrypted letter to be retrived
 
@@ -45,7 +45,7 @@ initial begin
         polybius_flat[21] = 8'h1D;  // x (w)
         polybius_flat[22] = 8'h22;  // x (x)
         polybius_flat[23] = 8'h35;  // x (y)
-        polybius_flat[24] = 8'h1Z;  // x (z)
+        polybius_flat[24] = 8'h1A;  // x (z)
 end
 
 assign m = coordinates[5:3];
@@ -63,9 +63,10 @@ assign letter_index = ((m - 1) * 5) + (n - 1);
 
 //////////////////////////////////// Encryption ///////////////////////////////////////
 always @(*) begin
-            if (letter_index == seedIndex) polybiusIndex <= 5'd0;
-            else if (letter_index > seedIndex) polybiusIndex <= 5'd24 - letter_index;
-            else if (letter_index < seedIndex) polybiusIndex <= 5'd25 - letter_index;
+            if (letter_index == 0) polybiusIndex <= seedIndex;
+            else if (5'd25 - letter_index > seedIndex) polybiusIndex <= (5'd25- letter_index);
+            else polybiusIndex <= 5'd24 - letter_index;
+            
  end
 
 //////////////////////////////////// retrive encrypted letters ///////////////////////////////////////////

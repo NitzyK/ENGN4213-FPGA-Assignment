@@ -21,6 +21,7 @@ module top_tb;
     reg encrypterSelector = 0;
     reg view = 0;
     reg encrypt = 0;
+    reg [5:0] T3_coordinates;
     reg rx = 1; // Idle high for UART
     
     // DUT outputs
@@ -53,6 +54,7 @@ module top_tb;
         .ssdAnode(ssdAnode),
         .ssdCathode(ssdCathode),
         .send_counter(send_counter)
+        //.T3_coordinates(T3_coordinates)
     );
     
     // Clock generation
@@ -121,6 +123,7 @@ module top_tb;
         reset = 1;
         #(CLK_PERIOD * 10);
         reset = 0;
+        T3_coordinates = 001001;
         #(CLK_PERIOD * 10);
         
         // Set to Task 3 (UART mode)

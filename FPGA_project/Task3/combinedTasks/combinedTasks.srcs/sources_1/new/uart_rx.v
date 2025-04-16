@@ -3,7 +3,8 @@ module uart_rx (
     input wire reset,     
     input wire rx,      // Serial input data line
     output reg [7:0] data,   
-    output reg data_valid   
+    output reg data_valid
+    //output reg [7:0] data_swap
 );
 
 
@@ -21,6 +22,8 @@ reg [3:0] bit_index;
 reg [15:0] clk_counter;    
 reg [7:0] data_reg;        
 reg [2:0] current_state, next_state = IDLE;
+
+
 
 //Timing Logic
 always @(posedge clk or posedge reset) begin
@@ -127,6 +130,7 @@ always @(posedge clk or posedge reset) begin
             STOP_BIT: begin
                 if (clk_counter == CLKS_PER_BIT && rx == 1'b1) begin
                     data <= data_reg; // Latch the received data
+                    //data_swap <= {data_reg[0],data_reg[1],data_reg[2], data_reg[3], data_reg[4], data_reg[5], data_reg[6], data_reg[7]};
                 end
             end
             
