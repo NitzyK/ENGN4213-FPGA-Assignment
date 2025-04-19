@@ -9,21 +9,19 @@ module coordinateGeneratorFSM_tb();
     reg reset;
     
     // Outputs
-    wire [2:0] n;
-    wire [2:0] m;
+    wire [5:0] coordinates;
     wire [2:0] stateLED;
     wire error;
     
     // Clock period definition
-    parameter CLK_PERIOD = 10; // 10ns = 100MHz
+    parameter CLK_PERIOD = 10; // 10ns = 100MHz  
     
     // Instantiate the Unit Under Test (UUT)
     coordinateGeneratorFSM uut (
         .clk(clk),
         .tap(tap),
         .reset(reset),
-        .n(n),
-        .m(m),
+        .coordinates(coordinates),
         .stateLED(stateLED),
         .error(error)
     );
@@ -90,13 +88,13 @@ module coordinateGeneratorFSM_tb();
         do_tap();
         #(CLK_PERIOD*5);
         print_state(stateLED);
-        $display("Current n value: %d", n);
+       // $display("Current n value: %d", n);
         
         // Tap once more in N_SET to set n=2
         $display("Tapping once more to make n=2");
         do_tap();
         #(CLK_PERIOD*5);
-        $display("Current n value: %d", n);
+       // $display("Current n value: %d", n);
         
         // Wait for the counter1 to reach 2 to advance to M_SET (simulate beat)
         $display("Waiting for transition to M_SET...");
@@ -110,7 +108,7 @@ module coordinateGeneratorFSM_tb();
         
         #(CLK_PERIOD*5);
         print_state(stateLED);
-        $display("Current m value: %d", m);
+       // $display("Current m value: %d", m);
         
         // Tap 3 times in M_SET to set m=3
         $display("Tapping 3 times to make m=3");
@@ -118,7 +116,7 @@ module coordinateGeneratorFSM_tb();
             do_tap();
             #(CLK_PERIOD*5);
         end
-        $display("Current m value: %d", m);
+      //  $display("Current m value: %d", m);
         
         // Wait for the counter2 to reach 2 to advance to DISPLAY
         $display("Waiting for transition to DISPLAY...");
@@ -132,7 +130,7 @@ module coordinateGeneratorFSM_tb();
         
         #(CLK_PERIOD*5);
         print_state(stateLED);
-        $display("Final n = %d, m = %d", n, m);
+       // $display("Final n = %d, m = %d", n, m);
         
         // Test Case 2: Check error condition (n > 5)
         $display("\n================ Test Case 2: Test error condition ================");
@@ -176,7 +174,7 @@ module coordinateGeneratorFSM_tb();
             do_tap();
             #(CLK_PERIOD*5);
         end
-        $display("Current n value: %d", n);
+       // $display("Current n value: %d", n);
         
         // Wait for transition to M_SET
         $display("Waiting for transition to M_SET...");
@@ -194,7 +192,7 @@ module coordinateGeneratorFSM_tb();
         $display("Tapping once to make m=1");
         do_tap();
         #(CLK_PERIOD*5);
-        $display("Current m value: %d", m);
+        //$display("Current m value: %d", m);
         
         // Wait for transition to DISPLAY
         $display("Waiting for transition to DISPLAY...");
@@ -207,7 +205,7 @@ module coordinateGeneratorFSM_tb();
         
         #(CLK_PERIOD*5);
         print_state(stateLED);
-        $display("Final n = %d, m = %d", n, m);
+      //  $display("Final n = %d, m = %d", n, m);
         
         // End simulation
         #100;

@@ -55,14 +55,18 @@ set_property -dict { PACKAGE_PIN V14   IOSTANDARD LVCMOS33 } [get_ports {tx_LED[
 #set_property -dict { PACKAGE_PIN U14   IOSTANDARD LVCMOS33 } [get_ports {m_coords[2]}]
 ##set_property -dict { PACKAGE_PIN V14   IOSTANDARD LVCMOS33 } [get_ports {led[7]}]
 
-set_property -dict { PACKAGE_PIN V13   IOSTANDARD LVCMOS33 } [get_ports {stateLED[0]}]
-set_property -dict { PACKAGE_PIN V3    IOSTANDARD LVCMOS33 } [get_ports {stateLED[1]}]
-set_property -dict { PACKAGE_PIN W3    IOSTANDARD LVCMOS33 } [get_ports {stateLED[2]}]
+set_property -dict { PACKAGE_PIN V13   IOSTANDARD LVCMOS33 } [get_ports {coordSetLED[0]}]
+set_property -dict { PACKAGE_PIN V3    IOSTANDARD LVCMOS33 } [get_ports {coordSetLED[1]}]
+set_property -dict { PACKAGE_PIN W3    IOSTANDARD LVCMOS33 } [get_ports {coordSetLED[2]}]
 set_property -dict { PACKAGE_PIN U3    IOSTANDARD LVCMOS33 } [get_ports {state[0]}]
 set_property -dict { PACKAGE_PIN P3    IOSTANDARD LVCMOS33 } [get_ports {state[1]}]
-set_property -dict { PACKAGE_PIN N3    IOSTANDARD LVCMOS33 } [get_ports {send_counter[0]}]
-set_property -dict { PACKAGE_PIN P1    IOSTANDARD LVCMOS33 } [get_ports {send_counter[1]}]
-set_property -dict { PACKAGE_PIN L1    IOSTANDARD LVCMOS33 } [get_ports {send_counter[2]}]
+#set_property -dict { PACKAGE_PIN N3    IOSTANDARD LVCMOS33 } [get_ports {send_counter[0]}]
+#set_property -dict { PACKAGE_PIN P1    IOSTANDARD LVCMOS33 } [get_ports {send_counter[1]}]
+#set_property -dict { PACKAGE_PIN L1    IOSTANDARD LVCMOS33 } [get_ports {send_counter[2]}]
+
+#set_property -dict { PACKAGE_PIN N3    IOSTANDARD LVCMOS33 } [get_ports {send_counter[0]}]
+#set_property -dict { PACKAGE_PIN P1    IOSTANDARD LVCMOS33 } [get_ports {send_counter[1]}]
+set_property -dict { PACKAGE_PIN L1    IOSTANDARD LVCMOS33 } [get_ports {error}]
 
 
 ##7 Segment Display
@@ -84,10 +88,10 @@ set_property -dict { PACKAGE_PIN W4   IOSTANDARD LVCMOS33 } [get_ports {ssdCatho
 
 ##Buttons
 set_property -dict { PACKAGE_PIN U18   IOSTANDARD LVCMOS33 } [get_ports btn1]
-#set_property -dict { PACKAGE_PIN T18   IOSTANDARD LVCMOS33 } [get_ports send]
+set_property -dict { PACKAGE_PIN T18   IOSTANDARD LVCMOS33 } [get_ports btn2]
 set_property -dict { PACKAGE_PIN W19   IOSTANDARD LVCMOS33 } [get_ports btnW]
 set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports btnE]
-#set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports btn_4]
+set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports btn4]
 
 
 ##Pmod Header JA

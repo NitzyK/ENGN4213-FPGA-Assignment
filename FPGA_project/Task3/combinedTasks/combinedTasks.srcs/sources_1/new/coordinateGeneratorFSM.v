@@ -68,6 +68,7 @@ clockDividerHB #(.THRESHOLD(50_000_000)) clockDividerHB_inst(
 always @(posedge clk) begin
    if (reset) begin
        state <= IDLE;
+       error <= 1'd0;
    end
 
    else begin
@@ -125,6 +126,7 @@ always @(posedge clk) begin
                 if (prevstate != N_SET) begin // set n to 1 and m to 0 upon entry (to account for first tap)
                     n <= 3'b001;
                     m <= 3'b000;
+                    error <= 1'd0;
                 end    
                 else if (tap && n < 3'd6) n <= n + 3'b001;// increment for every tap
                 
@@ -148,6 +150,7 @@ always @(posedge clk) begin
                 stateLED <= 3'b101;
                 n <= 3'b000;
                 m <= 3'b000;
+                error <= 1'd1;
             end
              
         default: 
