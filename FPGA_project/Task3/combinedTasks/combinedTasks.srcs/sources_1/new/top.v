@@ -160,7 +160,7 @@ end
 ///////////////////////////// Global Module Instantiations /////////////////////////////////
 
 // coordinateGenerator
-coordinateGeneratorFSM coordGenFSM_inst( .clk(clk), .reset(reset), .tap(btn1_processed), .stateLED(coordSetLED), .coordinates(coordinates), .error(error) );
+coordinateGeneratorFSM coordGenFSM_inst( .clk(clk), .reset(reset), .tap(btn1_processed), .stateLED(coordSetLED), .coordinates(coordinates)); //.error(error) 
 
 // toPS2 modules and routing
 wire [5:0] toPS2_1coordinates = (state == TASK1) ? T1_coordinates : 

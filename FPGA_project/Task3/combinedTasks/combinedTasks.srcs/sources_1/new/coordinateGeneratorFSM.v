@@ -4,7 +4,8 @@ module coordinateGeneratorFSM(
     input wire clk, tap, reset,
     output reg [5:0] coordinates,
     output reg [2:0] stateLED,
-    output reg error
+    output reg [2:0] state,
+    output reg error_signal
 );
 ////////////////////////////////Overview//////////////////////////////////////////////
 // this module takes in a timed button press sequence and generates coordinates (m,n).
@@ -16,7 +17,7 @@ parameter IDLE=3'b000, N_SET=3'b001, M_SET=3'b010, DISPLAY=3'b011, ERROR=3'b100;
 reg [1:0] counter1; 
 reg [1:0] counter2;
 wire beat;
-reg[2:0] prevstate, state, nextstate;
+reg[2:0] prevstate, nextstate;
 reg [2:0] n,m;
 
 ////////////////////////////////Timing////////////////////////////////////////////////
@@ -68,7 +69,7 @@ clockDividerHB #(.THRESHOLD(50_000_000)) clockDividerHB_inst(
 always @(posedge clk) begin
    if (reset) begin
        state <= IDLE;
-       error <= 1'd0;
+       error_signal <= 1'd0;
    end
 
    else begin
@@ -126,7 +127,7 @@ always @(posedge clk) begin
                 if (prevstate != N_SET) begin // set n to 1 and m to 0 upon entry (to account for first tap)
                     n <= 3'b001;
                     m <= 3'b000;
-                    error <= 1'd0;
+                    error_signal <= 1'd0;
                 end    
                 else if (tap && n < 3'd6) n <= n + 3'b001;// increment for every tap
                 
@@ -150,7 +151,7 @@ always @(posedge clk) begin
                 stateLED <= 3'b101;
                 n <= 3'b000;
                 m <= 3'b000;
-                error <= 1'd1;
+                error_signal <= 1'd1;
             end
              
         default: 

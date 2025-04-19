@@ -2,15 +2,17 @@
 
 module top_FSM(
 input wire clk,
-input wire reset,btnE, btnW, btn1, btn2, btn4, encrypterSelector, encrypt, view, 
+input wire reset,btnE, btnW, btn1, btn2, reset_btn, encrypterSelector, encrypt, view, 
 input wire rx,
 output wire tx,
-output wire [2:0] coordSetLED,
+// output wire [2:0] coordSetLED,
 output reg [1:0] state,
 output wire [6:0] ssdAnode,
 output wire [3:0] ssdCathode,
+output wire [2:0] coordGenState
 //output reg [2:0] send_counter,
-output wire error
+//output wire error_signal,
+//output wire spot_reset
 );
 
 ////////////////////////////////Internal Signal Declaration//////////////////////////
@@ -28,13 +30,19 @@ wire btnW_debounced;
 wire btnW_processed;
 wire [2:0] mode_selector; // 3 switches concatonated
 reg [2:0] nextstate;
+reg [2:0] prevstate;
 
 
 //task1
 reg [5:0] T1_coordinates;
 wire [7:0] T1_letter;
 reg [31:0] T1_displayValues;
-//wire error;
+reg reset_coords;
+//wire spot_reset;
+//wire [2:0] stateLED;
+//wire [2:0] coordGenState;
+wire error;
+//reg reset_coords;
 
 //task2
 reg [31:0] T2_displayValues;
@@ -57,7 +65,7 @@ wire [7:0] tx_data;
 reg [7:0] encrytionIn;
 wire send;
 reg [3:0] send_delay_bits;
-reg [2:0] send_counter;
+//reg [2:0] send_counter;
 
 //shared
 wire [5:0] generatedCoordinates;
@@ -77,9 +85,9 @@ spot spot_btn1_inst( .clk(clk), .spot_in(btn1_debounced), .spot_out(btn1_process
 debouncer debouncer_btn2_inst( .switchIn(btn2), .clk(clk), .reset(2'b0), .debounceout(btn2_debounced) );
 spot spot_btn2_inst( .clk(clk), .spot_in(btn2_debounced), .spot_out(btn2_processed) );
 
-// debounce and spot btn4
-debouncer debouncer_btn4_inst( .switchIn(btn4), .clk(clk), .reset(1'b0), .debounceout(btn4_debounced) );
-spot spot_btn4_inst( .clk(clk), .spot_in(btn4_debounced), .spot_out(btn4_processed) );
+// debounce and spot resert_btn
+debouncer debouncer_resetButton_inst( .switchIn(reset_btn), .clk(clk), .reset(1'b0), .debounceout(reset_btn_debounced) );
+spot spot_resetButton_inst( .clk(clk), .spot_in(reset_btn_debounced), .spot_out(reset_btn_processed) );
 
 // debounce and spot btnE
 debouncer debouncer_btnE_inst( .switchIn(btnE), .clk(clk), .reset(1'b0), .debounceout(btnE_debounced) );
@@ -89,9 +97,12 @@ spot spot_btnE_inst( .clk(clk), .spot_in(btnE_debounced), .spot_out(btnE_process
 debouncer debouncer_btnW_inst( .switchIn(btnW), .clk(clk), .reset(1'b0), .debounceout(btnW_debounced) );
 spot spot_btnW_inst( .clk(clk), .spot_in(btnW_debounced), .spot_out(btnW_processed) );
 
+// spot state transition scalared
+//spot spot_state_transitions( .clk(clk),  .spot_in(reset_coords),  .spot_out(spot_reset) ); 
+
 // Coordinate Generator:
 // 'coordinates' is a common input into TASK1 and TASK3
-coordinateGeneratorFSM coordGenFSM_inst( .clk(clk), .reset(reset), .tap(btn1_processed), .stateLED(coordSetLED), .coordinates(generatedCoordinates), .error(error) );
+coordinateGeneratorFSM coordGenFSM_inst( .clk(clk), .reset(reset_btn_processed || reset_coords), .tap(btn1_processed), .state(coordGenState), .coordinates(generatedCoordinates), .error_signal(error_signal) ); //.stateLED(stateLED),
 
 // polybiusSquare 
 polybiusSquare polybiusSquare_inst( .coordinates(generatedCoordinates), .letter(T1_letter));
@@ -126,7 +137,7 @@ uart_rx uart_rx_inst( .clk(clk), .rx(rx), .data(rx_data), .data_valid(rx_data_va
 uart_tx uart_tx_inst( .clk(clk), .tx(tx) , .busy(busy), .reset(reset), .send(send), .data_in(tx_data) );
 
 /// Level3Encrypter2 (encrypts a single letter at a time)
-lvl3Encrypter2 lvl3Encrypter( .coordinates(coordinates_1), .m_seed(T3_coordinates[5:3]), .n_seed(T3_coordinates[2:0]), .letter_encrypted(T3_letter_encrypted), .seed(seed) );
+lvl3Encrypter2 lvl3Encrypter( .coordinates(coordinates_1), .m_seed(generatedCoordinates[5:3]), .n_seed(generatedCoordinates[2:0]), .letter_encrypted(T3_letter_encrypted), .seed(seed) );
 
 displayDriver displayDriver_inst( .clk(clk), .displayValues(taskDisplayValues), .ssdAnode(ssdAnode), .ssdCathode(ssdCathode) );
     
@@ -135,6 +146,8 @@ assign mode_selector = {encrypterSelector, encrypt, view};
 assign  tx_data = tx_data_reg;
 
 assign send = send_delay_bits[3]; 
+
+//assign coordSetLED = stateLED;
     
 ////////////////////////// Finite State Machine //////////////////////////////////////
 
@@ -144,12 +157,13 @@ parameter IDLE=2'b00, TASK1=2'b01, TASK2=2'b10, TASK3=2'b11;
 always @(posedge clk) begin
    if (reset) begin
        state <= IDLE;
-       send_counter <= 3'd0;
+       //send_counter <= 3'd0;
        //taskDisplayValues <= 31'd0;    
    end
 
    else begin
    state <= nextstate;
+   prevstate <= state;
    end
 end    
 
@@ -157,45 +171,50 @@ always@(*) begin
     case(state)
         IDLE: begin
             if (btn2_processed) nextstate = TASK1;
-            else if (btn4_processed) nextstate = IDLE;
             else nextstate = IDLE;
         end
         
         TASK1: begin
             if (btn2_processed) nextstate = TASK2;
-            else if (btn4_processed) nextstate = IDLE;
             else nextstate = TASK1;
         end
         
         TASK2: begin 
             if (btn2_processed) nextstate = TASK3;
-            else if (btn4_processed) nextstate = TASK1;
             else nextstate = TASK2;
         end
         
         TASK3: begin 
             if (btn2_processed) nextstate = IDLE;
-            else if (btn4_processed) nextstate = TASK2;
             else nextstate = TASK3;
         end
     endcase
 end
 
 always @(posedge clk) begin
+
+     if (state != prevstate) reset_coords <= 1'd1; // reset values when entering state
+     else if (reset_coords == 1'd1) reset_coords <= 1'd0; 
+
+     
      case(state)
-        //IDLE: taskDisplayValues <= 31'd0;
+        IDLE: taskDisplayValues <= {8'h43, 8'h23, 8'h4B, 8'h24};
         TASK1: 
-        begin
-            toPS2coordinates_1 <= generatedCoordinates; // output from coordinatesGenerator (m,n) and input into 'toPS2_1' 
-            if (error) begin
-                taskDisplayValues <= {8'h24, 8'h2D, 8'h2D, 9'h00 }; // display Err if error
+        begin         
+            if (coordGenState == 3'b000) begin
+                taskDisplayValues <= {8'h4D, 8'h2D, 8'h24, 8'h1B };
+            end
+            
+            else if (coordGenState == 3'b100) begin
+                taskDisplayValues <= {8'h24, 8'h2D, 8'h2D, 8'h00 }; // display Err if error
             end
             
             else begin
-            case (view)
-                1'b0: taskDisplayValues <= {T1_letter, 8'h00, 8'h00, 8'h00};
-                1'b1: taskDisplayValues <= {T1_letter, 8'h00, PS2coordinates_1[15:8], PS2coordinates_1[7:0]};
-            endcase
+                toPS2coordinates_1 <= generatedCoordinates; // output from coordinatesGenerator (m,n) and input into 'toPS2_1' 
+                case (view)
+                    1'b0: taskDisplayValues <= {T1_letter, 8'h00, 8'h00, 8'h00};
+                    1'b1: taskDisplayValues <= {T1_letter, 8'h00, PS2coordinates_1[15:8], PS2coordinates_1[7:0]};
+                endcase
             end
         end
         
@@ -236,14 +255,24 @@ always @(posedge clk) begin
         
         TASK3:
         begin
-            T3_coordinates <= generatedCoordinates; 
+            
+            if (coordGenState == 3'b000) begin
+                taskDisplayValues <= {8'h4D, 8'h2D, 8'h24, 8'h1B };
+            end
+            
+            else if (coordGenState == 3'b100) begin
+                taskDisplayValues <= {8'h24, 8'h2D, 8'h2D, 8'h00 }; // display Err if error
+            end
+            
+            toPS2coordinates_1 <= generatedCoordinates; 
+            //T3_coordinates <= generatedCoordinates;
             taskDisplayValues <= {seed, 8'h00, PS2coordinates_1[15:8], PS2coordinates_1[7:0]}; // display seed and seed coordinates
             
-            if (rx_data_valid) letter_1 <= rx_data; 
+            if (rx_data_valid && (coordGenState == 3'b011)) letter_1 <= rx_data; 
             
             else if (send) begin
                tx_data_reg <= T3_letter_encrypted;
-               send_counter <= send_counter + 1;
+               //send_counter <= send_counter + 1;
             end 
         end             
     endcase

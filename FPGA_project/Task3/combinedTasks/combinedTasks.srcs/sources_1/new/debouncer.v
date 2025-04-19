@@ -13,7 +13,7 @@ output wire beat);
 ////////////////////////////////Internal Signal Declaration//////////////////////////
 reg[2:0] pipeline;
 
-clockDividerHB #(.THRESHOLD(3_333_333)) clockDividerHB_inst(.enable(1'b1), .reset(reset), .clk(clk), .beat(beat));
+clockDividerHB #(.THRESHOLD(2_222_222)) clockDividerHB_inst(.enable(1'b1), .reset(reset), .clk(clk), .beat(beat));
 
 always @(posedge clk) begin
     if (beat) begin
