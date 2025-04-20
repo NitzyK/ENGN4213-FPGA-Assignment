@@ -25,11 +25,37 @@ input wire clk,
 input wire ps2_data,
 input wire ps2_clk,
 output wire [6:0] ssdAnode,
-output wire[3:0]  ssdCathode
+output wire[3:0]  ssdCathode,
+output wire [2:0] led,
+output wire [1:0] ledl,
+output wire [7:0] leds,
+input wire reset,
+input wire send,
+//input wire rx,
+output wire tx
+);
+    
+
+
+  debouncer debounce_inst(
+    .clk(clk),
+    .switchIn(send),
+    .debounceout(send_deb),
+    .reset(reset)
+    
     );
+    
+    spot spot_inst(
+    .clk(clk),
+    .spot_in(send_deb),
+    .spot_out(send_spot)
+    );
+
+   
     wire [10:0] ps2_data_out;
     wire [7:0] ps2_scancode;
     wire [31:0] currentWord;
+   
     
     
     PS2_data_capture ps2_inst (
@@ -40,6 +66,7 @@ output wire[3:0]  ssdCathode
     .dv(dv)
     );
     
+    
     ps2_decoder ps2_decode(
     .clk(clk),
     .dv(dv),
@@ -47,29 +74,39 @@ output wire[3:0]  ssdCathode
     .is_extended(ext_flag),
     .is_break(break_flag),
     .dv_dec(dv_dec),
-    .scan_code(ps2_scancode)
+    .scan_code(ps2_scancode),
+    .leds(leds)
     );
     
     
     wordType word_inst (
     .clk(clk),
     .dv_dec(dv_dec),
-    .reset(1'b0),
+    .reset(reset),
     .enable(1'b1),
     .ps2_scancode(ps2_scancode),
     .extended_flag(ext_flag),
     .break_flag(break_flag),
-    .currentWord(currentWord)
+    .currentWord(currentWord),
+    .ledl(ledl),
+    .led(led),
+    .tx(tx),
+    .start(send_spot)
     );
+    
+    
     
     
     displayDriver ssd_driver_inst(
     .clk(clk),
     .displayValues(currentWord),
     .ssdAnode(ssdAnode),
-    .ssdCathode(ssdCathode)
+    .ssdCathode(ssdCathode) 
     
     );
+    
+    
+    
     
     
 endmodule

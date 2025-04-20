@@ -39,27 +39,27 @@
 # set_property -dict { PACKAGE_PIN V3    IOSTANDARD LVCMOS33 } [get_ports {PS2_data_out[9]}]
 # set_property -dict { PACKAGE_PIN W3    IOSTANDARD LVCMOS33 } [get_ports {PS2_data_out[10]}]
  #set_property -dict { PACKAGE_PIN U3    IOSTANDARD LVCMOS33 } [get_ports {PS2_data_out[11]}]
- set_property -dict { PACKAGE_PIN P3    IOSTANDARD LVCMOS33 } [get_ports {stateled[0]}]
- set_property -dict { PACKAGE_PIN N3    IOSTANDARD LVCMOS33 } [get_ports {stateled[1]}]
-# set_property -dict { PACKAGE_PIN P1    IOSTANDARD LVCMOS33 } [get_ports {stateled[2]}]
+# set_property -dict { PACKAGE_PIN P3    IOSTANDARD LVCMOS33 } [get_ports {stateled[0]}]
+# set_property -dict { PACKAGE_PIN N3    IOSTANDARD LVCMOS33 } [get_ports {stateled[1]}]
+ set_property -dict { PACKAGE_PIN P1    IOSTANDARD LVCMOS33 } [get_ports {sending_led}]
  set_property -dict { PACKAGE_PIN L1    IOSTANDARD LVCMOS33 } [get_ports {data_valid_led}]
  
  
- #7 Segment Display
-# set_property -dict { PACKAGE_PIN W7   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[6]}]
-# set_property -dict { PACKAGE_PIN W6   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[5]}]
-# set_property -dict { PACKAGE_PIN U8   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[4]}]
-# set_property -dict { PACKAGE_PIN V8   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[3]}]
-# set_property -dict { PACKAGE_PIN U5   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[2]}]
-# set_property -dict { PACKAGE_PIN V5   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[1]}]
-# set_property -dict { PACKAGE_PIN U7   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[0]}]
+# 7 Segment Display
+ set_property -dict { PACKAGE_PIN W7   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[6]}]
+ set_property -dict { PACKAGE_PIN W6   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[5]}]
+ set_property -dict { PACKAGE_PIN U8   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[4]}]
+ set_property -dict { PACKAGE_PIN V8   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[3]}]
+ set_property -dict { PACKAGE_PIN U5   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[2]}]
+ set_property -dict { PACKAGE_PIN V5   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[1]}]
+ set_property -dict { PACKAGE_PIN U7   IOSTANDARD LVCMOS33 } [get_ports {ssdAnode[0]}]
  
 # set_property -dict { PACKAGE_PIN V7   IOSTANDARD LVCMOS33 } [get_ports dp]
  
-# set_property -dict { PACKAGE_PIN U2   IOSTANDARD LVCMOS33 } [get_ports {ssdCathode[0]}]
-# set_property -dict { PACKAGE_PIN U4   IOSTANDARD LVCMOS33 } [get_ports {ssdCathode[1]}]
-# set_property -dict { PACKAGE_PIN V4   IOSTANDARD LVCMOS33 } [get_ports {ssdCathode[2]}]
-# set_property -dict { PACKAGE_PIN W4   IOSTANDARD LVCMOS33 } [get_ports {ssdCathode[3]}]
+ set_property -dict { PACKAGE_PIN U2   IOSTANDARD LVCMOS33 } [get_ports {ssdCathode[0]}]
+ set_property -dict { PACKAGE_PIN U4   IOSTANDARD LVCMOS33 } [get_ports {ssdCathode[1]}]
+ set_property -dict { PACKAGE_PIN V4   IOSTANDARD LVCMOS33 } [get_ports {ssdCathode[2]}]
+ set_property -dict { PACKAGE_PIN W4   IOSTANDARD LVCMOS33 } [get_ports {ssdCathode[3]}]
  
  
  ##Buttons

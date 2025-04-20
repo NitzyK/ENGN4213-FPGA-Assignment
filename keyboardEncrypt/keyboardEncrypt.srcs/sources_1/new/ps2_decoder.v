@@ -24,6 +24,7 @@ module ps2_decoder(
     input clk,
     input [10:0] ps2_data_in,
     input dv,
+    input type_enable,
     output reg [7:0] scan_code,
     output reg is_extended,
     output reg is_break,
@@ -36,7 +37,7 @@ module ps2_decoder(
     always @(posedge clk) begin
         dv_dec <= 0;
     
-        if (ps2_data_in[0] == 0 && ps2_data_in[10] && dv) begin // Start and stop bits valid            
+        if (dv && type_enable) begin // Start and stop bits valid            
             case (ps2_data_in[8:1]) // extract 8-bit data
                 8'hE0: extended_flag <= 1;
                 8'hF0: break_flag <= 1;
@@ -46,9 +47,10 @@ module ps2_decoder(
                     is_break <= break_flag;                
                     break_flag <= 0;
                     extended_flag <= 0;
+                    dv_dec <= 1;
                 end
             endcase
-            dv_dec <= 1;
+            
         end
     end
 endmodule

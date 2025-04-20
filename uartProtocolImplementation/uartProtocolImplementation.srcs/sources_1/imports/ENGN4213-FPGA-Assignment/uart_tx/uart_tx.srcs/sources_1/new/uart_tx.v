@@ -6,7 +6,8 @@ module uart_tx #(
     input wire [7:0] data_in,
     input wire send,
     output reg tx = 1,
-    output reg busy = 0
+    output reg busy = 0,
+    output reg sending
 );
     // Baud clock generation
     clockDividerHB #(
@@ -29,7 +30,6 @@ module uart_tx #(
     reg [1:0] current_state,next_state = IDLE;
     reg [2:0] bit_count = 3'd0;
     reg [7:0] data_reg = 8'd0;
-    reg sending = 1'b0;
     
     
     // Latch 'send' signal until beat occurs
