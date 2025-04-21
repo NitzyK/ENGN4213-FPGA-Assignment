@@ -1,6 +1,5 @@
 module spot (
-input wire clk,
- spot_in,
+input wire clk,spot_in,
 output wire spot_out
 );
 

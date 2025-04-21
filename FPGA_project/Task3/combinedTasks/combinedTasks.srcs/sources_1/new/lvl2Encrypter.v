@@ -41,7 +41,7 @@ initial begin
     polybius_flat[6] = 8'h34;   // G
     polybius_flat[7] = 8'h33;   // H
     polybius_flat[8] = 8'h43;   // I
-    polybius_flat[9] = 8'h00;   // x (k)
+    polybius_flat[9] = 8'h22;   // x (k)
     
     polybius_flat[10] = 8'h4B;   // L
     polybius_flat[11] = 8'h00;  // x (m)
@@ -55,11 +55,11 @@ initial begin
     polybius_flat[18] = 8'h2C;  // t
     polybius_flat[19] = 8'h3C;  // U
     
-    polybius_flat[20] = 8'h00;  // x (v)
-    polybius_flat[21] = 8'h00;  // x (w)
-    polybius_flat[22] = 8'h00;  // x (x)
-    polybius_flat[23] = 8'h00;  // x (y)
-    polybius_flat[24] = 8'h00;  // x (z)
+    polybius_flat[20] = 8'h2A;  // x (v)
+    polybius_flat[21] = 8'h1D;  // x (w)
+    polybius_flat[22] = 8'h22;  // x (x)
+    polybius_flat[23] = 8'h35;  // x (y)
+    polybius_flat[24] = 8'h1A;  // x (z)
 end
 
 ////////////////////////////// Encryption /////////////////////////////// 

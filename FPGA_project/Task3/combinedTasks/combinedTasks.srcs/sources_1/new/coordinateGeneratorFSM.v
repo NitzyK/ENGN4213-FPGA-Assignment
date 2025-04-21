@@ -1,11 +1,9 @@
 `timescale 1ns / 1ps
 
 module coordinateGeneratorFSM(
-    input wire clk, tap, reset,
+    input wire clk, tap, reset, enable,
     output reg [5:0] coordinates,
-    output reg [2:0] stateLED,
-    output reg [2:0] state,
-    output reg error_signal
+    output reg [2:0] state
 );
 ////////////////////////////////Overview//////////////////////////////////////////////
 // this module takes in a timed button press sequence and generates coordinates (m,n).
@@ -69,10 +67,10 @@ clockDividerHB #(.THRESHOLD(50_000_000)) clockDividerHB_inst(
 always @(posedge clk) begin
    if (reset) begin
        state <= IDLE;
-       error_signal <= 1'd0;
+       //error_signal <= 1'd0;
    end
 
-   else begin
+   else if (enable) begin
    state <= nextstate;
    prevstate <= state;
    end
@@ -116,42 +114,36 @@ always @(posedge clk) begin
     case(state)
         IDLE:   
             begin // initialise n,m to 0
-                stateLED <= 3'b001; 
                 n <= 3'b000;
                 m <= 3'b000;
             end
             
         N_SET:  
             begin 
-                stateLED <= 3'b010; 
                 if (prevstate != N_SET) begin // set n to 1 and m to 0 upon entry (to account for first tap)
                     n <= 3'b001;
                     m <= 3'b000;
-                    error_signal <= 1'd0;
                 end    
-                else if (tap && n < 3'd6) n <= n + 3'b001;// increment for every tap
+                else if (tap && n < 3'd6) n <= n + 3'b001;// increment on every tap while less than 6
                 
                 
             end
             
         M_SET: 
             begin 
-                stateLED <= 3'b011; 
                 if (prevstate != M_SET)  m <= 3'b000;
-                else if (tap && m < 3'd6) m <= m + 3'b001; // increment for every tap
+                else if (tap && m < 3'd6) m <= m + 3'b001; // increment on every tap while less than 6
             end
         
         DISPLAY: 
             begin
-               stateLED <= 3'b100;
+                // display state 
             end
             
         ERROR: 
             begin 
-                stateLED <= 3'b101;
                 n <= 3'b000;
                 m <= 3'b000;
-                error_signal <= 1'd1;
             end
              
         default: 

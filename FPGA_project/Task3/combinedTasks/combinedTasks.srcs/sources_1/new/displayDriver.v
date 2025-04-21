@@ -9,7 +9,7 @@ module displayDriver(
 ////////////////////////////////Overview/////////////////////////////////////////////////////
 
 // this module takes in a 32 bit value (a 4 letter word) and displays it to 
-// the 4x ssd by scanning 1 ssd at a time. 
+// the 4x 7SD by scanning 1 7SD at a time. 
 
 ////////////////////////////////Internal Signal Declaration//////////////////////////////////
 reg [3:0] activeDisplay = 4'b0111;
@@ -25,19 +25,19 @@ reg [7:0] ssdValue;
 always @(*) begin
     case(activeDisplay)
         4'b0111 : begin
-             ssdValue = displayValues[31:24]; // 1st SSD
+             ssdValue = displayValues[31:24]; // 1st 7SD
              ssdCathode = 4'b0111;
         end
         4'b1011 : begin 
-             ssdValue = displayValues[23:16]; // 2nd SSD
+             ssdValue = displayValues[23:16]; // 2nd 7SD
              ssdCathode = 4'b1011;
         end
         4'b1101 : begin 
-             ssdValue = displayValues[15:8]; // 3rd SSD
+             ssdValue = displayValues[15:8]; // 3rd 7SD
              ssdCathode = 4'b1101; 
         end
         4'b1110 : begin 
-             ssdValue = displayValues[7:0]; // 4th SSD
+             ssdValue = displayValues[7:0]; // 4th 7SD
              ssdCathode = 4'b1110;
         end
         default : begin

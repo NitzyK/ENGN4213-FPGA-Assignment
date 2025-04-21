@@ -2,32 +2,31 @@
 
 module top(
 input wire clk,
-input wire reset,btnE, btnW, btn1, btn2, reset_btn, encrypterSelector, encrypt, view, 
-input wire rx,
-output wire tx,
-output reg [1:0] state,
-output wire [6:0] ssdAnode,
-output wire [3:0] ssdCathode,
-output wire [2:0] coordGenState
-//output reg [2:0] send_counter,
-//output wire error_signal,
-//output wire spot_reset
+input wire reset, encrypterSelector, encrypt, view, // input switches
+input wire btnE, btnW, tap, btn, reset_btn, // input buttons
+input wire rx, // UART
+output wire tx, // UART
+output reg [1:0] state, // top FSM states
+output wire [6:0] ssdAnode, // ssd
+output wire [3:0] ssdCathode, // ssd
+output wire [2:0] coordGenState, // coordinate genertaor FSM state
+output reg [3:0] letter_index
 );
 
 ////////////////////////////////Internal Signal Declaration//////////////////////////
 
 // debounced and spotted button inputs
-wire btn1_debounced;
-wire btn1_processed;
-wire btn2_debounced;
-wire btn2_processed;
+wire btn_debounced;
+wire btn_processed;
+wire tap_debounced;
+wire tap_processed;
 wire btn4_debounced;
 wire btn4_processed;
 wire btnE_debounced;
 wire btnE_processed;
 wire btnW_debounced;
 wire btnW_processed;
-wire [2:0] mode_selector; // 3 switches concatonated
+wire [2:0] mode_selector;
 reg [2:0] nextstate;
 reg [2:0] prevstate;
 
@@ -50,19 +49,19 @@ wire [5:0] coordinates_1, coordinates_2, coordinates_3, coordinates_4;
 reg [7:0] m, n, m_encrypted, n_encrypted, letter, letter_encrypted;
 wire [3:0] index;
 wire [23:0] T2_coordinates_encrypted;
+reg EWshifter_enable;
 
 //task3
 reg [31:0] T3_displayValues;
 wire [31:0] T3_letter_encrypted;
+wire send;
 reg [5:0] T3_coordinates;
 wire [7:0] seed;
 wire [7:0] rx_data;
 reg [7:0] tx_data_reg;
 wire [7:0] tx_data;
 reg [7:0] encrytionIn;
-wire send;
 reg [3:0] send_delay_bits;
-//reg [2:0] send_counter;
 
 //shared
 wire [5:0] generatedCoordinates;
@@ -70,17 +69,18 @@ reg [5:0] toPS2coordinates_1, toPS2coordinates_2, toPS2coordinates_3, toPS2coord
 reg [15:0] T1_coordinatesPS2;
 wire [15:0] PS2coordinates_1, PS2coordinates_2, PS2coordinates_3, PS2coordinates_4, PS2coordinates_5, PS2coordinates_6, PS2coordinates_7, PS2coordinates_8;
 reg [31:0] taskDisplayValues;
+reg coordGen_enable;
 
 
 /////////////////////////// Instantiations /////////////////////////////////////////////
 
-// debounce and spot btn1
-debouncer debouncer_btn1_inst( .switchIn(btn1), .clk(clk), .reset(1'b0), .debounceout(btn1_debounced) );
-spot spot_btn1_inst( .clk(clk), .spot_in(btn1_debounced), .spot_out(btn1_processed) );
+// debounce and spot tap
+debouncer debouncer_btn1_inst( .switchIn(tap), .clk(clk), .reset(1'b0), .debounceout(tap_debounced) );
+spot spot_tap_inst( .clk(clk), .spot_in(tap_debounced), .spot_out(tap_processed) );
 
-// debounce and spot btn2
-debouncer debouncer_btn2_inst( .switchIn(btn2), .clk(clk), .reset(2'b0), .debounceout(btn2_debounced) );
-spot spot_btn2_inst( .clk(clk), .spot_in(btn2_debounced), .spot_out(btn2_processed) );
+// debounce and spot btn
+debouncer debouncer_btn_inst( .switchIn(btn), .clk(clk), .reset(2'b0), .debounceout(btn_debounced) );
+spot spot_btn_inst( .clk(clk), .spot_in(btn_debounced), .spot_out(btn_processed) );
 
 // debounce and spot resert_btn
 debouncer debouncer_resetButton_inst( .switchIn(reset_btn), .clk(clk), .reset(1'b0), .debounceout(reset_btn_debounced) );
@@ -94,12 +94,9 @@ spot spot_btnE_inst( .clk(clk), .spot_in(btnE_debounced), .spot_out(btnE_process
 debouncer debouncer_btnW_inst( .switchIn(btnW), .clk(clk), .reset(1'b0), .debounceout(btnW_debounced) );
 spot spot_btnW_inst( .clk(clk), .spot_in(btnW_debounced), .spot_out(btnW_processed) );
 
-// spot state transition scalared
-//spot spot_state_transitions( .clk(clk),  .spot_in(reset_coords),  .spot_out(spot_reset) ); 
-
 // Coordinate Generator:
 // 'coordinates' is a common input into TASK1 and TASK3
-coordinateGeneratorFSM coordGenFSM_inst( .clk(clk), .reset(reset_btn_processed || reset_stateChange), .tap(btn1_processed), .state(coordGenState), .coordinates(generatedCoordinates));
+coordinateGeneratorFSM coordGenFSM_inst( .clk(clk), .reset(reset_btn_processed || reset_stateChange), .tap(tap_processed), .state(coordGenState), .coordinates(generatedCoordinates), .enable(coordGen_enable));
 
 // polybiusSquare 
 polybiusSquare polybiusSquare_inst( .coordinates(generatedCoordinates), .letter(T1_letter));
@@ -125,7 +122,7 @@ ps2ToCoord ps2ToCoord_4 ( .letter(letter_4), .coordinates(coordinates_4) );
 lvl2Encrypter lvl2Encrypter_inst( .encrypterSelector(encrypterSelector), .wordCoords(T2_coordinates), .wordLetters_encrypted(wordLetters_encrypted), .wordCoords_encrypted(T2_coordinates_encrypted) );
 
 // eastWestShifter used as a pointer for displaying letters (button inputs east and west increment and decrement index by 1 between 0 and 4)
-eastWestShifter #(.max_index(4'd3)) EWShifter ( .clk(clk), .reset(reset || reset_stateChange), .btnE(btnE_processed), .btnW(btnW_processed), .index(index) );
+eastWestShifter #(.max_index(4'd3)) EWShifter ( .clk(clk), .reset(reset || reset_stateChange), .btnE(btnE_processed), .btnW(btnW_processed), .index(index), .enable(EWshifter_enable) );
 
 // UART receiver
 uart_rx uart_rx_inst( .clk(clk), .rx(rx), .data(rx_data), .data_valid(rx_data_valid), .reset(reset) );
@@ -133,18 +130,18 @@ uart_rx uart_rx_inst( .clk(clk), .rx(rx), .data(rx_data), .data_valid(rx_data_va
 // UART transceiver
 uart_tx uart_tx_inst( .clk(clk), .tx(tx) , .busy(busy), .reset(reset), .send(send), .data_in(tx_data) );
 
-/// Level3Encrypter2 (encrypts a single letter at a time)
-lvl3Encrypter2 lvl3Encrypter( .coordinates(coordinates_1), .m_seed(generatedCoordinates[5:3]), .n_seed(generatedCoordinates[2:0]), .letter_encrypted(T3_letter_encrypted), .seed(seed) );
+// Level3Encrypter2 (encrypts a single letter at a time)
+lvl3Encrypter lvl3Encrypter_inst( .coordinates(coordinates_1), .m_seed(generatedCoordinates[5:3]), .n_seed(generatedCoordinates[2:0]), .letter_encrypted(T3_letter_encrypted), .seed(seed) );
 
 displayDriver displayDriver_inst( .clk(clk), .displayValues(taskDisplayValues), .ssdAnode(ssdAnode), .ssdCathode(ssdCathode) );
-    
+
+
+//  Assignments  
 assign mode_selector = {encrypterSelector, encrypt, view};
 
 assign  tx_data = tx_data_reg;
 
 assign send = send_delay_bits[3]; 
-
-//assign coordSetLED = stateLED;
     
 ////////////////////////// Finite State Machine //////////////////////////////////////
 
@@ -153,70 +150,79 @@ parameter IDLE=2'b00, TASK1=2'b01, TASK2=2'b10, TASK3=2'b11;
 // next state logic
 always @(posedge clk) begin
    if (reset) begin
-       state <= IDLE;
-       //send_counter <= 3'd0;
-       //taskDisplayValues <= 31'd0;    
+       state <= IDLE;  
    end
 
    else begin
-   state <= nextstate;
-   prevstate <= state;
+       state <= nextstate;
+       prevstate <= state;
    end
 end    
 
+// state transition logic
 always@(*) begin
     case(state)
         IDLE: begin
-            if (btn2_processed) nextstate = TASK1;
+            if (btn_processed) nextstate = TASK1;
             else nextstate = IDLE;
         end
         
         TASK1: begin
-            if (btn2_processed) nextstate = TASK2;
+            if (btn_processed) nextstate = TASK2;
             else nextstate = TASK1;
         end
         
         TASK2: begin 
-            if (btn2_processed) nextstate = TASK3;
+            if (btn_processed) nextstate = TASK3;
             else nextstate = TASK2;
         end
         
         TASK3: begin 
-            if (btn2_processed) nextstate = IDLE;
+            if (btn_processed) nextstate = IDLE;
             else nextstate = TASK3;
         end
     endcase
 end
 
+// output logic
 always @(posedge clk) begin
-
-     if (state != prevstate) reset_stateChange <= 1'd1; // reset values when entering state
+     // reset values when entering state
+     if (state != prevstate) reset_stateChange <= 1'd1; 
      else if (reset_stateChange == 1'd1) reset_stateChange <= 1'd0; 
 
-     
      case(state)
-        IDLE: taskDisplayValues <= {8'h43, 8'h23, 8'h4B, 8'h24};
+        IDLE: begin
+                // state module enable/dissable
+                EWshifter_enable <= 1'd0;    
+                coordGen_enable <= 1'd0; 
+                
+                taskDisplayValues <= {8'h43, 8'h23, 8'h4B, 8'h24}; // display IDLE 
+              end
         TASK1: 
-        begin         
-            if (coordGenState == 3'b000) begin
-                taskDisplayValues <= {8'h4D, 8'h2D, 8'h24, 8'h1B };
-            end
+        begin
+            // state module enable/dissable       
+            EWshifter_enable <= 1'd0;
+            coordGen_enable <= 1'd1;
             
-            else if (coordGenState == 3'b100) begin
-                taskDisplayValues <= {8'h24, 8'h2D, 8'h2D, 8'h00 }; // display Err if error
-            end
+            if (coordGenState == 3'b000) taskDisplayValues <= {8'h2C, 8'h1C, 8'h4D, 8'h00 }; // display TAP
+            
+            else if (coordGenState == 3'b100) taskDisplayValues <= {8'h24, 8'h2D, 8'h2D, 8'h00 }; // display Err if error
             
             else begin
-                toPS2coordinates_1 <= generatedCoordinates; // output from coordinatesGenerator (m,n) and input into 'toPS2_1' 
+                toPS2coordinates_1 <= generatedCoordinates; // output from coordinatesGenerator (m,n) and input into toPS2_1
                 case (view)
-                    1'b0: taskDisplayValues <= {T1_letter, 8'h00, 8'h00, 8'h00};
-                    1'b1: taskDisplayValues <= {T1_letter, 8'h00, PS2coordinates_1[15:8], PS2coordinates_1[7:0]};
+                    1'b1: taskDisplayValues <= {T1_letter, 8'h00, 8'h00, 8'h00};
+                    1'b0: taskDisplayValues <= {T1_letter, 8'h00, PS2coordinates_1[15:8], PS2coordinates_1[7:0]};
                 endcase
             end
         end
         
         TASK2:
         begin
+            // state module enable/dissable
+            EWshifter_enable <= 1'd1;
+            coordGen_enable <= 1'd0;      
+            
             // prewritten letter FAST
             letter_1 <= 8'h2B; 
             letter_2 <= 8'h1C; 
@@ -227,6 +233,7 @@ always @(posedge clk) begin
             
             T2_coordinates <= {coordinates_1, coordinates_2, coordinates_3, coordinates_4};
             
+            // convert coordinates to PS2 keycodes
             toPS2coordinates_1 <= coordinates_1;
             toPS2coordinates_2 <= coordinates_2;
             toPS2coordinates_3 <= coordinates_3;
@@ -251,15 +258,14 @@ always @(posedge clk) begin
         end
         
         TASK3:
-        begin
-        
-            if (coordGenState == 3'b000) begin
-                taskDisplayValues <= {8'h4D, 8'h2D, 8'h24, 8'h1B };
-            end
+        begin 
+            // state module enable/dissable
+            EWshifter_enable <= 1'd0;
+            coordGen_enable <= 1'd1;
             
-            else if (coordGenState == 3'b100) begin
-                taskDisplayValues <= {8'h24, 8'h2D, 8'h2D, 8'h00 }; // display Err if error
-            end
+            if (coordGenState == 3'b000) taskDisplayValues <= {8'h1B, 8'h24, 8'h24, 8'h23 }; // display SEED
+            
+            else if (coordGenState == 3'b100) taskDisplayValues <= {8'h24, 8'h2D, 8'h2D, 8'h00 }; // display Err if error
             
             else begin 
                 toPS2coordinates_1 <= generatedCoordinates; 
@@ -267,7 +273,7 @@ always @(posedge clk) begin
                 
                 taskDisplayValues <= {seed, 8'h00, PS2coordinates_1[15:8], PS2coordinates_1[7:0]}; // display seed and seed coordinates
                 
-                if (rx_data_valid) letter_1 <= rx_data; 
+                if (rx_data_valid) letter_1 <= rx_data; // if the rx data is received, assign the data to letter_1
                 
                 else if (send) begin
                    tx_data_reg <= T3_letter_encrypted;
@@ -279,11 +285,12 @@ always @(posedge clk) begin
 end
 
 
-//////////////////////////////////// ssd index letter display /////////////////////////////
+//////////////////////////////////// 7SD index letter display /////////////////////////////
 always @(*) begin
     case(index)
         4'd0 : begin
             letter = letter_1;
+            letter_index = 4'b1000;
             letter_encrypted = wordLetters_encrypted[31:24];
             m = PS2coordinates_1[15:8];
             n = PS2coordinates_1[7:0];
@@ -292,6 +299,7 @@ always @(*) begin
         end 
         4'd1 : begin
             letter = letter_2;
+            letter_index = 4'b0100;
             letter_encrypted = wordLetters_encrypted[23:16];
             m = PS2coordinates_2[15:8];
             n = PS2coordinates_2[7:0];
@@ -300,6 +308,7 @@ always @(*) begin
         end
         4'd2 : begin
             letter = letter_3;
+            letter_index = 4'b0010;
             letter_encrypted = wordLetters_encrypted[15:8];
             m = PS2coordinates_3[15:8];
             n = PS2coordinates_3[7:0];
@@ -308,6 +317,7 @@ always @(*) begin
         end
         4'd3 : begin
             letter = letter_4;
+            letter_index = 4'b0001;
             letter_encrypted = wordLetters_encrypted[7:0];
             m = PS2coordinates_4[15:8];
             n = PS2coordinates_4[7:0];
@@ -315,6 +325,7 @@ always @(*) begin
             n_encrypted = PS2coordinates_8[7:0];
         end
         default : begin
+            letter_index = 4'b0000;
             letter = 8'h00;
             letter_encrypted = 8'h00;
             m = 8'h00;
@@ -325,7 +336,7 @@ always @(*) begin
     endcase
 end
 
-// delay send signal by 3 clock cycles
+// delay send signal by 3 clock cycles to allow for encryption computation
 always @(posedge clk) begin
     send_delay_bits <= {send_delay_bits[2:0], rx_data_valid};
 end

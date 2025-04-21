@@ -29,7 +29,7 @@ initial begin
         polybius_flat[6] = 8'h34;   // G
         polybius_flat[7] = 8'h33;   // H
         polybius_flat[8] = 8'h43;   // I
-        polybius_flat[9] = 8'h22;   // x (k)
+        polybius_flat[9] = 8'h42;   // x (k)
         
         polybius_flat[10] = 8'h4B;   // L
         polybius_flat[11] = 8'h3A;  // x (m)
@@ -47,7 +47,7 @@ initial begin
         polybius_flat[21] = 8'h1D;  // x (w)
         polybius_flat[22] = 8'h22;  // x (x)
         polybius_flat[23] = 8'h35;  // x (y)
-        polybius_flat[24] = 8'h1Z;  // x (z)
+        polybius_flat[24] = 8'h1A;  // x (z)
 end
 
 // calculate the index of the letter located at (m,n).   

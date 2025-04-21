@@ -5,7 +5,8 @@ input wire switchIn,
 input wire clk,
 input wire reset,
 output wire debounceout,
-output wire beat);
+output wire beat
+);
 
 ////////////////////////////////Overview//////////////////////////////////////////////
 // this module debounces a button or switch input to remove noise or unwanted signals
